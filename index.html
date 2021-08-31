@@ -2,18 +2,80 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8730c06133.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/svg" href="./images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=".public/css/style.css">
     <title>FishEye</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
 </head>
 
 <body>
+    <header class="header" role="banner">
+        <!--Bouton caché apparaissant au scroll-->
+        <a class="header_scroll" aria-label="Passer au contenu" href="#">Passer au contenu</a>
+        <a class="header_logo" href="index.html">
+            <img src="./images/logo.svg" alt="Fisheye Home page">
+        </a>
+        <!--Filtres des spécialités des photographes-->
+        <nav aria-label="photographer categories" class="header_filter">
+            <ul class="tag_list">
+                <li>
+                    <span class="sr_only">Tag link</span>
+                    <a class="tag_link" href="#">#portrait</a>
+                </li>
 
+                <li>
+                    <span class="sr_only">Tag link</span>
+                    <a class="tag_link" href="#">#events</a>
+                </li>
 
-    <footer>
-    </footer>
+                <li>
+                    <span class="sr_only">Tag link</span>
+                    <a class="tag_link" href="#">#travel</a>
+                </li>
+
+                <li>
+                    <span class="sr_only">Tag link</span>
+                    <a class="tag_link" href="#">#animals</a>
+                </li>
+
+                <li>
+                    <span class="sr_only">Tag link</span>
+                    <a class="tag_link" href="#">#sport</a>
+                </li>
+
+                <li>
+                    <span class="sr_only">Tag link</span>
+                    <a class="tag_link" href="#">#architecture</a>
+                </li>
+
+                <li>
+                    <span class="sr_only">Tag link</span>
+                    <a class="tag_link" href="#">#art</a>
+                </li>
+
+                <li>
+                    <span class="sr_only">Tag link</span>
+                    <a class="tag_link" href="#">#fashion</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!--Titre principal positionné à dans le header à droite-->
+        <h1 id="main_title">Nos photographes</h1>
+
+        <!--Description des photographes-->
+        <div id="photographes_container">
+
+        </div>
+    </main>
+    <script src="./javascript/index.js"></script>
 </body>
 
 </html>
