@@ -6,8 +6,7 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     padding: 3rem 5rem;
-  }
-  
+  }  
   @media (max-width: 600px) {
     body {
       padding: 1.5rem 0;
@@ -25,4 +24,8 @@ body {
   
   main {
     justify-content: center;
+  }
+
+  .d-none{
+    display: none!important;
   }

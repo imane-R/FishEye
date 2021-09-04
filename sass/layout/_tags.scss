@@ -3,7 +3,7 @@
   }
   @media (max-width: 1350px) {
     .header_filter {
-      width: 100%;
+      
     }
   }
   
@@ -13,6 +13,8 @@
     align-items: center;
     justify-content: center;
     list-style: none;
+    padding-left: 15px;
+    margin: 0px;
   }
   
   @media (max-width: 380px) {
@@ -47,6 +49,11 @@
     transition: all 0.5s ease-in-out;
   
     &:hover {
+      color: $color_white;
+      background-color: $color_primary;
+    }
+
+    &.active{
       color: $color_white;
       background-color: $color_primary;
     }
