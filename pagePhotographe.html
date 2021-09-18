@@ -26,10 +26,10 @@
         </section>
         <section class="sortBy">
             <label class="sortby_label" for="trier" aria-label="Order by">Trier par</label>
-            <select class="dropdown" name="trigger" id="trier">
-                <option class="dopdown_list" value="popularite">Popularité</option>
+            <select class="dropdown" name="trigger" id="trier" onchange="changeDropDownEvent()">
+                <option class="dopdown_list" value="likes">Popularité</option>
                 <option class="dopdown_list" value="date">Date</option>
-                <option class="dopdown_list" value="titre">Titre</option>
+                <option class="dopdown_list" value="title">Titre</option>
             </select>
 
         </section>

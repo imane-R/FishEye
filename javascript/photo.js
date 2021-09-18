@@ -3,6 +3,7 @@ let medias = [];
 let params = new URL(document.location).searchParams;
 let photographerIdUrl = params.get('id');
 let mediaList = [];
+let fullMediaList = [];
 
 fetch('./photographers.json')
     .then(function (response) {
@@ -15,27 +16,54 @@ fetch('./photographers.json')
             data.photographers.forEach((photographer) => {
                 if (photographerIdUrl == photographer.id) {
                     createPhotographeBanner(photographer);
-                // add photographer's price per day
-                /*let price_day = document.createElement('span');
-                price_day.setAttribute('id', 'price_day');
-                document.querySelector('#likes_price').appendChild(price_day);
-                price_day.innerHTML += photographer.price + 
-                "€ / jour";*/
                 }
             });
         medias = data.media;
         if (data.media != undefined)
             data.media.forEach((media) => {
                 if (photographerIdUrl == media.photographerId) {
-                    creatMedias(media);
+                    fullMediaList.push(media);
                 }
             });
+            showMediasByAttribute("likes");
     })
     .catch(function (err) {
         console.log('Erreur' + err);
     });
 
+function showMediasByAttribute (attribute) {
+    document.getElementById("medias_photographe").innerHTML = '';
+    mediaList = [];
 
+    if (!attribute) {
+        fullMediaList.forEach((media) => {
+            creatMedias(media);
+        });
+    }
+
+    if (attribute === "likes") {
+        fullMediaList.sort((a,b) => {return b.likes - a.likes;}).forEach((media) => {
+            creatMedias(media);
+        });
+    }
+
+    if (attribute === "date") {
+        fullMediaList.sort((a,b) => {return new Date(b.date).getTime() - new Date(a.date).getTime();}).forEach((media) => {
+            creatMedias(media);
+        });
+    }
+    if (attribute === "title") {
+        fullMediaList.sort((a,b) => a.title.localeCompare(b.title)).forEach((media) => {
+            creatMedias(media);
+        });
+    }
+
+}
+
+function changeDropDownEvent () {
+    let selectedChoice = document.getElementById("trier").value;
+    showMediasByAttribute(selectedChoice);
+} 
 function createTag(elementTag) {
     let result = '';
     elementTag.forEach((tag) => {
@@ -129,7 +157,7 @@ function mediaChoice(media){
             name: media.title,
         });
         return(
-            '<video class="media" onclick = "openLightBox('+ (mediaList.length - 1) + ')" controls>' + 
+            '<video class="media" onclick = "openLightBox('+ (mediaList.length - 1) + ')" >' + 
             '<source src="' + mediaPath + 
             '" type = "video/mp4"'+
             '>'+
@@ -137,6 +165,11 @@ function mediaChoice(media){
         )
     }
 }
+// add photographer's price per day
+/*let price_day = document.createElement('span');
+price_day.setAttribute('id', 'price_day');
+document.querySelector('#likes_price').appendChild(price_day);
+price_day.innerHTML += photographer.price + "€ / jour";*/
 
 //Contact me button
 const contactButtonScroll = document.getElementById("contactButton");
@@ -148,12 +181,13 @@ let currentMediaIndex;
 let medaiQueryPhone = window.matchMedia("(max-width: 677px)")
 
 function openLightBox(index){
+    index = index % mediaList.length;
     let currentMedia = mediaList.at(index);
     currentMediaIndex = index;
     console.log(currentMedia);
     lightboxModal.style.display = "block";
     injectMedia = lightboxModal.getElementsByClassName("modal_body")[0];
-    injectMedia.innerHTML = '<img class="current_media" src="'+ currentMedia.src +'" >'+
+    injectMedia.innerHTML = choiceMediaLightBox(currentMedia) +
     '<span class="close_modal close_modal_media "  onclick="closeLightBox()"  aria-label="Close contact form">'+
     '<i class="fas fa-times"></i>'+
      '</span>'+
@@ -161,16 +195,19 @@ function openLightBox(index){
      '<i class="fas fa-chevron-left" onclick="previousMedia()">'+ '</i>'+
      '<p class="media-title">'+ currentMedia.name +'</p>' ;
 }
- /*function choiceMediaLightBox(media){
-    if(media.image){
-        return ('<img class="current_media" src="'+ currentMedia.src +'" >'+
-        '<span class="close_modal close_modal_media "  onclick="closeLightBox()"  aria-label="Close contact form">');
-    }else if(media.video){
-        return(
-
-        )
+ function choiceMediaLightBox(media){
+    if(media.type == "image"){
+        return ('<img class="current_media" src="'+ media.src +'" >'
+        );
+    }else if(media.type == "video"){
+        return('<video class="current_media" controls>' + 
+        '<source src="' + media.src + 
+        '" type = "video/mp4"'+
+        '>'+
+        '</video>'
+        );
     }
-}*/
+}
 function previousMedia(){
     openLightBox(currentMediaIndex-1);
 }

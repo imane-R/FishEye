@@ -15,8 +15,10 @@
     }
     .current_media {
         object-fit: fill;
-        max-height: 100vh;
-        max-width: 100vw;
+        width: 816px;
+        height: 715px;
+        margin-top: 35px;
+        border-radius: 5px;
     }
 
     .close_modal_media{
@@ -43,6 +45,8 @@
     }
     .media-title{
         color: $color_primary;
+        padding-right: 673px;
+        margin: 0px;
     }
 }
 @media (max-width: 667px){
