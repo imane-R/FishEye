@@ -24,9 +24,10 @@
           font-size: 1.8rem;
       }
       .city_country{
-         color: $color_primary;
+          color: $color_primary;
           display: flex;
           margin: auto;
+          font-size: small;
       }
       .tags{
         display: flex;
@@ -58,11 +59,12 @@
   }
   .photographe_portrait {
     float: left;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
     margin: auto;
+    margin-bottom: 20px;
   }
   @media (max-width: 1024px){
     #photographes_container {

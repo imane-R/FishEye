@@ -1,0 +1,20 @@
+#likes_price {
+    display: flex;
+    position: fixed;
+    border-radius: 0.3rem 0.3rem 0 0;
+    align-items: center;
+    background-color: $color_bg_scroll;
+    border: none;
+    color: $color_black;
+    font-size: 1.5rem;
+    font-weight: 500;
+    right: 2.5rem;
+    bottom: 0;
+    padding: 0.6rem 2rem 0.6rem 2rem;
+  }
+  
+  @media (max-width: 815px) {
+    #likes_price {
+      display: none;
+    }
+  }

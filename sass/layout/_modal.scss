@@ -1,0 +1,120 @@
+
+    #contact_me_modal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background-color: #ffff;
+       .content_modal{
+            position: relative;
+            width: 669px;
+            height: 900px;
+            background-color: $color_bg_scroll;
+            margin: auto;
+            border-radius: 5px;
+       }
+        .modal_title{
+            position: absolute;
+            left: 5.23%;
+            right: 22%;
+            top: 2%;
+            font-size: 64px;
+            margin-top: 0px;
+        }
+        .fa-times{
+            position: absolute;
+            right: 5%;
+            top: 3%;
+            color: $color_white;
+            font-size: 64px;
+        }
+        .label-first-name{
+            position: absolute;
+            left: 5%;
+            top: 23%;
+            font-size: 36px;
+            font-weight: lighter;
+            color: $color_modal_font;
+        }
+        #first-name{
+            position: absolute;
+            background: $color_white;
+            left: 5.23%;
+            top: 28%;
+            border-radius: 5px;
+            width: 88%;
+            height: 60px;
+            border-color: $color_white;
+        }
+        .label-last-name{
+            position: absolute;
+            left: 5%;
+            top: 35%;
+            font-size: 36px;
+            font-weight: lighter;
+            color: $color_modal_font;
+        }
+        #last-name{
+            position: absolute;
+            background: $color_white;
+            left: 5.23%;
+            top: 40%;
+            border-radius: 5px;
+            width: 88%;
+            height: 60px;
+            border-color: $color_white;
+        }
+        .label-email{
+            position: absolute;
+            left: 5%;
+            top: 47%;
+            font-size: 36px;
+            font-weight: lighter;
+            color: $color_modal_font;
+        }
+        #email{
+            position: absolute;
+            background: $color_white;
+            left: 5.23%;
+            top: 52%;
+            border-radius: 5px;
+            width: 88%;
+            height: 60px;
+            border-color: $color_white;
+        }
+        .label-message{
+            position: absolute;
+            left: 5%;
+            top: 59%;
+            font-size: 36px;
+            font-weight: lighter;
+            color: $color_modal_font;
+        }
+        #message{
+            position: absolute;
+            background: $color_white;
+            left: 5.23%;
+            top: 65%;
+            border-radius: 5px;
+            width: 88%;
+            height: 170px;
+            border-color: $color_white;
+        }
+        .btn_submit{
+            position: absolute;
+            left: 5%;
+            top: 89%;
+            font-size: 18px;
+            font-weight: lighter;
+            color: $color_white;
+            background-color: $color_primary;
+            border-radius: 5px;
+            border-color: $color_primary;
+            width: 136px;
+            height: 53px;
+        }
+    }

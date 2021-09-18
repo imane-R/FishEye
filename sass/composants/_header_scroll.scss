@@ -1,6 +1,6 @@
-.header_scroll {
+#header_scroll {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0.5rem;
     text-align: center;
     left: 50%;
@@ -10,9 +10,9 @@
     padding: 0.4rem 0.8rem;
     font-size: 1.1rem;
     font-weight: 700;
-    transition: all 0.5s ease-in-out;
+    //transition: all 0.5s ease-in-out;
     color: $color_black;
-    z-index: 9999;
+    z-index: 1;
   
     &:hover {
       background-color: $color_primary;

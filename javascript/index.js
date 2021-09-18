@@ -159,16 +159,28 @@ function filterPhotographers() {
     for (let i = 0; i < photographerContainers.length; i++) {
         photographerTags = photographerContainers[i].getAttribute('data-tags');
         sharedTags = photographerTags.split(',').filter(function (tag) {
-        if(selectedTags.length == 0){
-            return true;
-        }else{
-            return selectedTags.indexOf(tag.replace(/s$/,"")) !== -1;
-        }
+            if (selectedTags.length == 0) {
+                return true;
+            } else {
+                return selectedTags.indexOf(tag.replace(/s$/, "")) !== -1;
+            }
         });
-        if ( sharedTags.length === 0 ){
+        if (sharedTags.length === 0) {
             photographerContainers[i].classList.add('d-none');
-        }else{
+        } else {
             photographerContainers[i].classList.remove('d-none');
         }
     }
 }
+//Bouton passer au contenu
+const headerscroll = document.getElementById('header_scroll');
+
+window.addEventListener('scroll', scroll);
+
+    function scroll() {
+        if (window.scrollY) {
+            headerscroll.style.display = 'block';
+        } else {
+            headerscroll.style.display = 'none';
+        }
+    };
