@@ -1,0 +1,95 @@
+<<<<<<< Updated upstream
+=======
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8730c06133.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/svg" href="./images/favicon.svg" />
+    <link rel="stylesheet" href="public/css/style.css">
+    <title>FishEye - Nos photographes</title>
+</head>
+
+<body>
+    <header class="header" role="banner">
+        <a class="header_logo" href="index.html">
+            <img src="./images/logo.svg" alt="Fisheye Home page">
+        </a>
+    </header>
+    <main class="main_photgraphe">
+        <button type="button" id="contactButton" onclick="openModal()">Contactez-moi
+        </button>
+    
+        <section id="banner_photographe_container">
+            <!--Photographer banner injection in JS-->
+        </section>
+        <section class="sortBy">
+            <label class="sortby_label" for="trier" aria-label="Order by">Trier par</label>
+            <select class="dropdown" name="trigger" id="trier" onchange="changeDropDownEvent()">
+                <option class="dopdown_list" value="likes">Popularité</option>
+                <option class="dopdown_list" value="date">Date</option>
+                <option class="dopdown_list" value="title">Titre</option>
+            </select>
+
+        </section>
+        <section id="medias_photographe">
+            <!--Photographer's media presentation-->
+        </section>
+            <!-- total likes and price-->
+        <div id="likes-price"></div>
+            <!--Contact form-->
+    </main>
+    <div id="contact_me_modal" class="container-modal">
+        <div class="content_modal">
+            <div class="modal_body">
+                <div class="modal_header">
+                    <h1 class="modal_title">Contactez-moi Mimi Keel</h1>
+                    <span class="close_modal"  onclick="closeModal()"  aria-label="Close contact form">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+                <form class="modal_formulaire" id="formulaire" action="" method="get"
+                    aria-labelledby="Contact me Mimi Keel" role="dialog" novalidate>
+
+                    <!--First name field-->
+                    <label for="prenom" class="label-first-name">Prénom</label>
+                    <input class="text-control" type="text" id="first-name" aria-label="First name"
+                        aria-required="true" name="first name" />
+                        <span id="error_firstName"></span>
+                    <!--last name field-->
+                    <label for="nom" class="label-last-name">Nom</label>
+                    <input class="text-control" type="text" id="last-name" aria-label="Last name"
+                        aria-required="true" name="last name" />
+                    <span id="erreur_lastName"></span>
+                    <!--email field-->
+                    <label for="email" class="label-email">Email</label>
+                    <input class="text-control" type="email" id="email" aria-label="Email" aria-required="true"
+                        name="email" />
+                    <span id="erreur_email"></span>
+                    <!--message field-->
+                    <label for="message" class="label-message">Votre message</label>
+                    <textarea class="text-control" name="message" id="message" aria-label="Your message"></textarea>
+                    <span id="erreur_essage"></span>
+                    <!--send button-->
+                    <button class="btn_submit" type="submit" aria-label="Send" >Envoyer</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox_modal" class="container-modal">
+        <div class="content_modal">
+            <div class="modal_body">
+            </div>
+        </div>
+    </div>
+
+    <script src="./javascript/photo.js"></script>
+</body>
+
+</html>
+>>>>>>> Stashed changes
