@@ -1,0 +1,88 @@
+#photographes_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 80px;
+    width: 102%;
+  }
+  .photographe_link{
+    display: flex;
+    flex-direction: column;
+  }
+  .photographe_container{
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 45px;
+      p{
+          margin: 0px;
+      }
+      .photographeName{
+          margin: auto;
+          color : $color_secondary;
+          font-size: 1.8rem;
+      }
+      .city_country{
+          color: $color_primary;
+          display: flex;
+          margin: auto;
+          font-size: small;
+      }
+      .tags{
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        padding: 0px;
+        li{
+          color: $color_primary;
+          text-decoration: none;
+          font-size: 0.75rem;
+          font-weight: 500;
+          border: 0.1rem solid $color_bord_tag;
+          border-radius: 1rem;
+          padding: 0.3rem 0.5rem;
+          margin: 1rem 0.2rem 0 0.2rem;
+        }
+      }
+      .price{
+          margin: auto;
+          color: $color_price;
+          font-size: x-small;
+          margin-top: 4px;
+          margin-bottom: 6px;
+      }
+      .tagLine{
+        margin: auto; 
+        font-size: x-small;
+      }
+  }
+  .photographe_portrait {
+    float: left;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 1024px){
+    #photographes_container {
+      flex-wrap: wrap;
+    } 
+    .photographe_container {
+      width: 50%;
+    }
+  }
+  @media (max-width: 667px){
+    .photographe_container {
+      width: 100%;
+  }
+  #photographes_container {
+    flex-wrap: wrap;
+    display: contents;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+}

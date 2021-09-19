@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    width: 100%;
+    max-width: 962px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media (max-width: 1370px) {
+    .header {
+      flex-direction: column;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .header_logo img {
+      width: 9.4rem;
+      height: 2.3rem;
+      margin-left: 1rem;
+    }
+  }

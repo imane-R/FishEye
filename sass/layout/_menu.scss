@@ -1,0 +1,24 @@
+.sortBy {
+    margin-top: 2rem;
+    margin-bottom: 45px;
+  }
+  
+  .sortby_label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .dropdown {
+    margin-left: 1rem;
+    background-color: $color_primary;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.31rem;
+    color: $color_white;
+  }
+  @media (max-width: 799px) {
+    .sortBy{
+      display: none;
+    }
+  }

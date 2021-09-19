@@ -1,0 +1,123 @@
+#banner_photographe_container{
+    background-color: $color_bg_photographe;
+    position: relative;
+    height: 313px;
+    .photographe_portrait_banner{
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        object-fit: cover;
+        position: absolute;
+        right: 4%;
+        top: 25%;
+        bottom: -54%;
+    }
+    .tag_list_banner{
+        position: absolute;
+        width: 399px;
+        height: 38px;
+        left: 2%;
+        top: 218px;
+        padding-left: none;
+        max-width: fit-content;
+    }
+    .photographeNameBanner{
+        position: absolute;
+        left: 4%;
+        top: 5%;
+        font-weight: lighter;
+        font-size: 49px;
+        color: $color_secondary;
+        white-space: nowrap; 
+        width: 321px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .city_country_banner{
+        position: absolute;
+        left: 4%;
+        top: 43.5%;
+        bottom: 43%;
+        font-size: 23px;
+        line-height: 31px;
+        text-align: center;
+        font-weight: lighter;
+        color: $color_primary;
+        margin-top: 0px;
+    }
+    .tagLine_banner{
+        position: absolute;
+        left: 4%;
+        top: 54%;
+        bottom: 22%;
+        font-weight: lighter;
+        font-size: 14px;
+        color: $color_words_photographe;
+        margin: 0;
+        margin-top: 16px;
+    }
+}
+#contactButton{
+    position: absolute;
+    left: 46%;
+    top: 166px;
+    z-index: 1;
+    border-radius: 5px;
+    border: none;
+    background-color: $color_primary;
+    color: $color_white;
+    width: 149px;
+    height: 58px;
+    display: block;
+    font-size: 17px;
+    font-weight: 400;
+  }
+
+@media (max-width: 770px) {
+    #banner_photographe_container{
+        background-color: $color_white;
+        height: 199px;   
+        margin-bottom: 15px;
+        .photographeNameBanner{
+            font-size: 36px;
+            white-space: nowrap; 
+            width: 200px; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .city_country_banner{
+            font-size: 13px;
+            top: 28.5%;
+            margin-top: 25px;
+
+        }
+        .tagLine_banner{
+            font-size: 13px;
+            top: 48.5%;
+            white-space: nowrap; 
+            width: 200px; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .tag_list_banner{
+            padding-left: 0px;
+            margin-left: 0px;
+            left: 4%;
+            top: 128px;
+        }
+        .photographe_portrait_banner{
+            right: 4%;
+            top: 14%;
+            width: 110px;
+            height: 110px;
+        }
+    }
+    #contactButton {
+        position: fixed;
+        top: 10%;
+        margin-left: -53px;
+        height: 23px;
+        z-index: 1;
+    }
+
+}
