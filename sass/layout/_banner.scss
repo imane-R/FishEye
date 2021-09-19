@@ -28,6 +28,10 @@
         font-weight: lighter;
         font-size: 49px;
         color: $color_secondary;
+        white-space: nowrap; 
+        width: 321px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .city_country_banner{
         position: absolute;
@@ -44,37 +48,36 @@
     .tagLine_banner{
         position: absolute;
         left: 4%;
-        top: 66.5%;
+        top: 54%;
         bottom: 22%;
         font-weight: lighter;
         font-size: 14px;
         color: $color_words_photographe;
         margin: 0;
-        margin-top: -27px;
+        margin-top: 16px;
     }
-    .banner_photographe_button {
-        position: absolute;
-        left: 45%;
-        top: 20%;
-        border-radius: 5px;
-        border: none;
-        background-color: $color_primary;
-        color: $color_white;
-        width: 149px;
-        height: 58px;
-        display: block;
-        font-size: 17px;
-        font-weight: 400;
-      }
 }
+#contactButton{
+    position: absolute;
+    left: 46%;
+    top: 166px;
+    z-index: 1;
+    border-radius: 5px;
+    border: none;
+    background-color: $color_primary;
+    color: $color_white;
+    width: 149px;
+    height: 58px;
+    display: block;
+    font-size: 17px;
+    font-weight: 400;
+  }
 
-@media (max-width: 667px) {
+@media (max-width: 770px) {
     #banner_photographe_container{
         background-color: $color_white;
-        .banner_photographe_button {
-            position: absolute;
-            top: 130%;
-        }
+        height: 199px;   
+        margin-bottom: 15px;
         .photographeNameBanner{
             font-size: 36px;
             white-space: nowrap; 
@@ -85,6 +88,8 @@
         .city_country_banner{
             font-size: 13px;
             top: 28.5%;
+            margin-top: 25px;
+
         }
         .tagLine_banner{
             font-size: 13px;
@@ -98,14 +103,21 @@
             padding-left: 0px;
             margin-left: 0px;
             left: 4%;
-            top: 150px;
+            top: 128px;
         }
         .photographe_portrait_banner{
             right: 4%;
-            top: 9%;
-            width: 130px;
-            height: 130px;
+            top: 14%;
+            width: 110px;
+            height: 110px;
         }
+    }
+    #contactButton {
+        position: fixed;
+        top: 10%;
+        margin-left: -53px;
+        height: 23px;
+        z-index: 1;
     }
 
 }

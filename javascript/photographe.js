@@ -2,57 +2,72 @@
 let medias = [];
 
 fetch('./photographers.json')
-    .then(function (response) {
-        if (response.ok) {
-            return response.json();
-        }
-    })
-    .then(function (data) {
-        createPhotographeBanner(data.photographers)
-    })
-    .catch(function (err) {
-        console.log('Erreur' + err);
-    });
+  .then(function (response) {
+    if (response.ok) {
+      return response.json();
+    }
+  })
+  /*.then(function (data) {
+    medias = data.media;
+    if (data.media != undefined)
+      data.media.forEach((Element) =>*/ {
+        let div = document.createElement('div');
+        div.innerHTML =
+          '<section class="photographe_description">' +
+          '<a class="photographe_link" href="./pagePhotographe.html" id="' +
+          Element.id +
+          '" aria-label="Mimi Keel">' +
+          '<img class="photographe_portrait" src="' +
+          Element.portrait +
+          '"alt="' +
+          Element.alt +
+          '">' +
+          '<h2 class="photographe_name">' +
+          Element.name +
+          '</h2>' +
+          '</a>' +
+          '<p class="photographe_localisation">' +
+          Element.city +
+          ' , ' +
+          Element.country +
+          '</p>' +
+          '<p class="photographe_words">' +
+          Element.tagline +
+          '</p>' +
+          '<p class="photographe_price">' +
+          Element.price +
+          '€/jour</p>' +
+          '<ul class="tag_list filter_mobile">' +
+          '<li>' +
+          '<span class="sr_only">Tag link</span>' +
+          '<a class="tag_link" href="#">#' +
+          Element.tags[0] +
+          '</a>' +
+          '</li>' +
+          '<li>' +
+          '<span class="sr_only">Tag link</span>' +
+          '<a class="tag_link" href="#">#' +
+          Element.tags[1] +
+          '</a>' +
+          '</li>' +
+          '<li>' +
+          '<span class="sr_only">Tag link</span>' +
+          '<a class="tag_link" href="#">#' +
+          Element.tags[2] +
+          '</a>' +
+          '</li>' +
+          '<li>' +
+          '<span class="sr_only">Tag link</span>' +
+          '<a class="tag_link" href="#">#' +
+          Element.tags[3] +
+          '</a>' +
+          '</li>' +
+          '</ul>' +
+          '</section>';
 
-/*function createTag(elementTag) {
-    let result = '';
-    elementTag.forEach((tag) => {
-        result +=
-            '<li>' +
-            '<span class="sr_only">Tag link</span>' +
-            '<a class="tag_link" href="#">#' +
-            tag +
-            '</a>' +
-            '</li>';
-    });
-    return result;
-}*/
-
-function createPhotographeBanner(element) {
-    
-    let bannerPhotographe = document.getElementById('banner_photographe_container');
-    bannerPhotographe.innerHTML =
-        '<h1 class = "photographeName">' +
-        element.name +
-        '</h1>' +
-        '</a>' +
-        '<p class="city_country">' +
-        element.city +
-        ' , ' +
-        element.country +
-        '</p>' +
-        '<p class="tagLine">' +
-        element.tagline +
-        '</p>' +
-        '<p class="price">' +
-        element.price +
-        '€/jour</p>' +
-        /*'<ul class="tag_list filter_mobile">' +
-        createTag(element.tags) +
-        '</ul>' +*/
-        '<img class="photographe_portrait" src="../images/Sample Photos/Photographers ID Photos/' +
-        element.portrait +
-        '"alt="' +
-        element.alt +
-        '">';
-}
+        document.querySelector('.medias_photographe').appendChild(div);
+      });
+  })
+  .catch(function (err) {
+    console.log('Erreur' + err);
+  });
