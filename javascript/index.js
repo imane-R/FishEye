@@ -125,7 +125,7 @@ function createPhotographe(photographer) {
         '"" aria-label="' +
         photographer.name +
         '">' +
-        '<img class="photographe_portrait" src="../images/Sample Photos/Photographers ID Photos/' +
+        '<img class="photographe_portrait" src="../images/SamplePhotos/PhotographersIDPhotos/' +
         photographer.portrait +
         '"alt="' +
         photographer.alt +

@@ -97,7 +97,7 @@ function createPhotographeBanner(photographer) {
         '<ul class=" tag_list tag_list_banner filter_mobile">' +
         createTag(photographer.tags) +
         '</ul>' +
-        '<img class="photographe_portrait_banner" src="../images/Sample Photos/Photographers ID Photos/' +
+        '<img class="photographe_portrait_banner" src="../images/SamplePhotos/PhotographersIDPhotos/' +
         photographer.portrait +
         '"alt="' +
         photographer.alt +
@@ -136,7 +136,7 @@ function incrementLikes(event) {
 function mediaChoice(media){
     let mediaPath;
     if(media.image){
-        mediaPath = './images/Sample Photos/' + media.photographerId + '/' + media.image;
+        mediaPath = './images/SamplePhotos/' + media.photographerId + '/' + media.image;
         mediaList.push({
             type: 'image',
             src: mediaPath,
@@ -150,7 +150,7 @@ function mediaChoice(media){
             '>'
         )
     }else if (media.video){
-        mediaPath = './images/Sample Photos/' + media.photographerId + '/' + media.video;
+        mediaPath = './images/SamplePhotos/' + media.photographerId + '/' + media.video;
         mediaList.push({
             type: 'video',
             src: mediaPath,
