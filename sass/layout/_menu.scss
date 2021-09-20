@@ -16,6 +16,9 @@
     border: none;
     border-radius: 0.31rem;
     color: $color_white;
+    .dropdown_list{
+      background-color: $color_primary;
+    }
   }
   @media (max-width: 799px) {
     .sortBy{

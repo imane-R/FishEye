@@ -1,20 +1,33 @@
-#likes_price {
-    display: flex;
+#likes-price {
+  background: $color_price_totalLikes;
+  width: 331px;
+  height: 67px;
+  position: fixed;
+  right: 26px;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+
+  #price-day{
     position: fixed;
-    border-radius: 0.3rem 0.3rem 0 0;
-    align-items: center;
-    background-color: $color_bg_scroll;
-    border: none;
-    color: $color_black;
-    font-size: 1.5rem;
-    font-weight: 500;
-    right: 2.5rem;
-    bottom: 0;
-    padding: 0.6rem 2rem 0.6rem 2rem;
-  }
-  
-  @media (max-width: 815px) {
-    #likes_price {
-      display: none;
+    right: 50px;
+    font-size: 18px;
+    }
+  #total-likes{
+    position: relative;
+    .total_likes{
+      position: fixed;
+      right: 303px;
+      font-size: 18px;
+    }
+    .total{
+      position: fixed;
+      right: 242px;
+      font-size: 18px;
+      bottom: 27px;
+      top: auto;
+      color: $color_black;
     }
   }
+  }
+  

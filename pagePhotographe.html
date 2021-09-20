@@ -27,32 +27,37 @@
         <section class="sortBy">
             <label class="sortby_label" for="trier" aria-label="Order by">Trier par</label>
             <select class="dropdown" name="trigger" id="trier" onchange="changeDropDownEvent()">
-                <option class="dopdown_list" value="likes">Popularité</option>
-                <option class="dopdown_list" value="date">Date</option>
-                <option class="dopdown_list" value="title">Titre</option>
+                <option class="dropdown_list" value="likes">Popularité</option>
+                <option class="dropdown_list" value="date">Date</option>
+                <option class="dropdown_list" value="title">Titre</option>
             </select>
 
         </section>
         <section id="medias_photographe">
             <!--Photographer's media presentation-->
         </section>
-            <!-- total likes and price-->
-        <div id="likes-price"></div>
+
+        <!-- total likes and price-->
+        <div id="likes-price">
+            <span id="price-day"></span>
+            <span id="total-likes"></span>  
+        </div>
+            
             <!--Contact form-->
     </main>
     <div id="contact_me_modal" class="container-modal">
         <div class="content_modal">
             <div class="modal_body">
                 <div class="modal_header">
-                    <h1 class="modal_title">Contactez-moi Mimi Keel</h1>
                     <span class="close_modal"  onclick="closeModal()"  aria-label="Close contact form">
                         <i class="fas fa-times"></i>
                     </span>
                 </div>
                 <form class="modal_formulaire" id="formulaire" action="" method="get"
-                    aria-labelledby="Contact me Mimi Keel" role="dialog" novalidate>
-
-                    <!--First name field-->
+                    aria-labelledby="Contact me" role="dialog" novalidate>
+                    <fieldset>
+                        <legend id="modal_title">  Contactez-moi </legend>
+                                            <!--First name field-->
                     <label for="prenom" class="label-first-name">Prénom</label>
                     <input class="text-control" type="text" id="first-name" aria-label="First name"
                         aria-required="true" name="first name" />
@@ -73,6 +78,7 @@
                     <span id="erreur_essage"></span>
                     <!--send button-->
                     <button class="btn_submit" type="submit" aria-label="Send" >Envoyer</button>
+                    </fieldset>
 
                 </form>
             </div>

@@ -4,7 +4,7 @@ let params = new URL(document.location).searchParams;
 let photographerIdUrl = params.get('id');
 let mediaList = [];
 let fullMediaList = [];
-
+let totalLikes = 0;
 fetch('./photographers.json')
     .then(function (response) {
         if (response.ok) {
@@ -16,6 +16,9 @@ fetch('./photographers.json')
             data.photographers.forEach((photographer) => {
                 if (photographerIdUrl == photographer.id) {
                     createPhotographeBanner(photographer);
+                    photographerPrice(photographer);
+                    let modalTitle = document.getElementById('modal_title');
+                    modalTitle.innerHTML = "Contactez-moi" + " " +photographer.name;
                 }
             });
         medias = data.media;
@@ -23,9 +26,11 @@ fetch('./photographers.json')
             data.media.forEach((media) => {
                 if (photographerIdUrl == media.photographerId) {
                     fullMediaList.push(media);
+                    totalLikes = totalLikes + media.likes;
                 }
             });
             showMediasByAttribute("likes");
+            showTotalLikes();
     })
     .catch(function (err) {
         console.log('Erreur' + err);
@@ -102,8 +107,8 @@ function createPhotographeBanner(photographer) {
         '"alt="' +
         photographer.alt +
         '">' 
-}
-
+         
+};
 function creatMedias(media) {
 
     let media_photographe = document.createElement('div');
@@ -132,6 +137,13 @@ function incrementLikes(event) {
     let numLikesElement = event.currentTarget.parentElement.getElementsByClassName('nb_likes')[0];
     let numLikes = parseInt(numLikesElement.innerHTML) + 1;
     numLikesElement.innerHTML = numLikes;
+    totalLikes ++; 
+    showTotalLikes(); 
+};
+function photographerPrice(photographer) {
+    let PricePerDay = document.getElementById('price-day');
+    PricePerDay .innerHTML = '<p class = "price-per-day">' + 
+    photographer.price + "€ / jour"+'</p>';
 };
 function mediaChoice(media){
     let mediaPath;
@@ -165,11 +177,15 @@ function mediaChoice(media){
         )
     }
 }
-// add photographer's price per day
-/*let price_day = document.createElement('span');
-price_day.setAttribute('id', 'price_day');
-document.querySelector('#likes_price').appendChild(price_day);
-price_day.innerHTML += photographer.price + "€ / jour";*/
+
+//injection de la bannière total deslikes
+
+function showTotalLikes() {
+    let total_likes = document.getElementById('total-likes');
+    total_likes.innerHTML =
+    '<p class ="total_likes">'+ totalLikes+
+    '</p>' + '<i class="fas fa-heart total"></i>';
+  }
 
 //Contact me button
 const contactButtonScroll = document.getElementById("contactButton");
@@ -234,8 +250,9 @@ window.addEventListener('scroll', scroll);
 function closeModal(){
     bgModal.style.display = "none";
 }
-
-
+function sentMessage(){
+    
+}
 /*const firstName =  document.getElementById("first-name");
 const errorFirstName = document.getElementById("error_firstName");
 const lastName =  document.getElementById("last-name");
