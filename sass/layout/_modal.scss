@@ -17,12 +17,15 @@
             margin: auto;
             border-radius: 5px;
        }
-        .modal_title{
+       fieldset{
+        display: contents;
+       }
+        #modal_title{
             position: absolute;
             left: 5.23%;
             right: 22%;
             top: 2%;
-            font-size: 64px;
+            font-size: 56px;
             margin-top: 0px;
         }
         .fa-times{
