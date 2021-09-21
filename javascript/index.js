@@ -1,76 +1,23 @@
-/*fetch('./photographers.json', {
-})
-    .then(function (res) {
-        if (res.ok) { return res.json() }
-    })
-    .then(function (data) {
-        drawPhotographers(data.photographers, [])
-        
-    });
 
-/*function bringTags(tags) {
-    let taglistElement, tagElemet;
-    taglistElement = document.createElement("ul");
-    taglistElement.classList.add("tags");
-    for (let i = 0; i < tags.length; i++) {
-        tagElemet = document.createElement('li');
-        tagElemet.innerHTML = tags[i];
-        taglistElement.appendChild(tagElemet);
-    }
-    return taglistElement;
-}*/
-
-/*function drawPhotographers(photographers , selectedTags) {
-    let photographeContainer, photographeName, photographePortrait, photographeCity, photographeCountry, photographeTagline, photographePrice;
-    let photographesContainer = document.getElementById("photographes_container");
-    for (let i = 0; i < photographers.length; i++) {
-        //if(tags in the array of tags only one element)
-
-        photographeContainer = document.createElement("div");
-        photographeName = document.createElement("h1");
-        photographePortrait = document.createElement("img");
-        cityCountry = document.createElement("div")
-        photographeCity = document.createElement('p');
-        photographeCountry = document.createElement('p');
-        photographeTagline = document.createElement('p');
-        photographePrice = document.createElement('p');
-
-
-        photographeContainer.classList.add("photographe_container");
-        cityCountry.classList.add("city_country");
-        photographePrice.classList.add("price");
-        photographeTagline.classList.add('tagLine');
-        photographeName.classList.add("photographeName");
-
-        photographeName.innerHTML = photographers[i].name;
-        photographePortrait.src = "./images/Sample Photos/Photographers ID Photos/" + photographers[i].portrait;
-        photographeCity.innerHTML = photographers[i].city + ',';
-        photographeCountry.innerHTML = photographers[i].country;
-        photographeTagline.innerHTML = photographers[i].tagline;
-        photographePrice.innerHTML = photographers[i].price + '€/jour';
-
-
-
-        photographeContainer.appendChild(photographePortrait);
-        photographeContainer.appendChild(photographeName);
-        photographeContainer.appendChild(cityCountry);
-        cityCountry.appendChild(photographeCity);
-        cityCountry.appendChild(photographeCountry);
-        photographeContainer.appendChild(photographeTagline);
-        photographeContainer.appendChild(photographePrice);
-        photographeContainer.appendChild(bringTags(photographers[i].tags));
-        photographesContainer.appendChild(photographeContainer)
-    }
-}*/
-
-
-let tagLinkElement = document.getElementsByClassName("tag_link");
 let selectedTags = [];
-for (let i = 0; i < tagLinkElement.length; i++) {
-    tagLinkElement[i].addEventListener("click", changeTagSelection);
+bindTagLinkClickEvent();
+fetchAndShowPhotographers();
+window.addEventListener('scroll', scrollEvent);
+
+/**
+ * bind click event on all tag link
+ */
+function bindTagLinkClickEvent() {
+    let tagLinkElement = document.getElementsByClassName("tag_link");
+    for (let i = 0; i < tagLinkElement.length; i++) {
+        tagLinkElement[i].addEventListener("click", changeTagSelection);
+    }
 }
 
-
+/**
+ * change state (active or not) of tag when click on it, then call filterPhotographers function
+ * @param {Event} event javascript event object
+ */
 function changeTagSelection(event) {
     let tagName = event.currentTarget.getAttribute("data-tag");
     let tagNameIndex = selectedTags.indexOf(tagName);
@@ -84,26 +31,35 @@ function changeTagSelection(event) {
     filterPhotographers();
 }
 
-fetch('./photographers.json', {
-})
-    .then(function (response) {
-        if (response.ok) {
-            return response.json();
-        }
+/**
+ * fetch photographers.json and draw photographers
+ */
+function fetchAndShowPhotographers() {
+    fetch('./photographers.json', {
     })
-    .then(function (data) {
-        if (data.photographers != undefined)
-            data.photographers.forEach((Element) => {
-                createPhotographe(Element);
-            });
-    })
-    .catch(function (err) {
-        console.log('Erreur' + err);
-    });
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(function (data) {
+            if (data.photographers != undefined)
+                data.photographers.forEach((photographer) => {
+                    createUIPhotographerContainer(photographer);
+                });
+        })
+        .catch(function (err) {
+            console.log('Erreur' + err);
+        });
+}
 
-function createTag(elementTag) {
+/**
+ * get html li tags from an array of tag
+ * @param {Array} tags array of string (tag name)
+ */
+function getHtmlLiTags(tags) {
     let result = '';
-    elementTag.forEach((tag) => {
+    tags.forEach((tag) => {
         result +=
             '<li>' +
             '<span class="sr_only">Tag link</span>' +
@@ -115,26 +71,30 @@ function createTag(elementTag) {
     return result;
 }
 
-function createPhotographe(photographer) {
+/**
+ * create UI photographer container with its data (link, portrait img, name, city , country , tags) from object photographer
+ * @param {Object} photographer javascript event object
+ */
+function createUIPhotographerContainer(photographer) {
     let photographeContainer = document.createElement('section');
     photographeContainer.classList.add('photographe_container');
     photographeContainer.setAttribute('data-tags', photographer.tags);
     photographeContainer.innerHTML =
-        '<a class="photographe_link" href="./pagePhotographe.html?id=' +
+        '<a class="photographe_link" href="./photographer.html?id=' +
         photographer.id +
         '"" aria-label="' +
         photographer.name +
         '">' +
-        '<img class="photographe_portrait" src="../images/SamplePhotos/PhotographersIDPhotos/' +
+        '<img class="photographe_portrait" role="link and image" src="../images/SamplePhotos/PhotographersIDPhotos/' +
         photographer.portrait +
         '"alt="' +
-        photographer.alt +
+        photographer.name +
         '">' +
         '<h2 class="photographeName">' +
         photographer.name +
         '</h2>' +
         '</a>' +
-        '<p class="city_country">' +
+        '<p class="city_country" role="text paragraph">' +
         photographer.city +
         ' , ' +
         photographer.country +
@@ -142,17 +102,20 @@ function createPhotographe(photographer) {
         '<p class="tagLine">' +
         photographer.tagline +
         '</p>' +
-        '<p class="price">' +
+        '<p class="price" role="text paragraph">' +
         photographer.price +
         '€/jour</p>' +
-        '<ul class="tag_list filter_mobile">' +
-        createTag(photographer.tags);
+        '<ul class="tag_list filter_mobile" role="link">' +
+        getHtmlLiTags(photographer.tags);
     '</ul>' + '</section>';
     document
         .getElementById('photographes_container')
         .appendChild(photographeContainer);
 }
 
+/**
+ * filter photographers by showing only ones which have at least on shared tag with selectedTags
+ */
 function filterPhotographers() {
     let photographerContainers = document.getElementsByClassName('photographe_container');
     let photographerTags, sharedTags;
@@ -172,15 +135,15 @@ function filterPhotographers() {
         }
     }
 }
-//Bouton passer au contenu
-const headerscroll = document.getElementById('header_scroll');
 
-window.addEventListener('scroll', scroll);
-
-    function scroll() {
-        if (window.scrollY) {
-            headerscroll.style.display = 'block';
-        } else {
-            headerscroll.style.display = 'none';
-        }
-    };
+/**
+ * show element header_scroll only when scrolling vertically
+ */
+function scrollEvent() {
+    let headerscroll = document.getElementById('header_scroll');
+    if (window.scrollY) {
+        headerscroll.style.display = 'block';
+    } else {
+        headerscroll.style.display = 'none';
+    }
+};
