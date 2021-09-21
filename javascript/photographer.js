@@ -135,7 +135,7 @@ function createUIPhotographerBanner(photographer) {
         '<ul class=" tag_list tag_list_banner filter_mobile">' +
         createTag(photographer.tags) +
         '</ul>' +
-        '<img class="photographe_portrait_banner" src="../images/SamplePhotos/PhotographersIDPhotos/' +
+        '<img class="photographe_portrait_banner" src="./images/SamplePhotos/PhotographersIDPhotos/' +
         photographer.portrait +
         '"alt="' +
         photographer.alt +
