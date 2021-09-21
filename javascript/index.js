@@ -85,7 +85,7 @@ function createUIPhotographerContainer(photographer) {
         '"" aria-label="' +
         photographer.name +
         '">' +
-        '<img class="photographe_portrait" role="link and image" src="../images/SamplePhotos/PhotographersIDPhotos/' +
+        '<img class="photographe_portrait" role="link and image" src="./images/SamplePhotos/PhotographersIDPhotos/' +
         photographer.portrait +
         '"alt="' +
         photographer.name +
