@@ -3,6 +3,11 @@ let medias = [];
 let mediaList = [];
 let fullMediaList = [];
 let totalLikes = 0;
+let currentMediaIndex;
+const $mainPhotographers = document.getElementById("main_photgraphers")
+const $body = document.getElementById("body")
+const $contactMeModal = document.getElementById("contact_me_modal");
+const $lightboxModal = document.getElementById("lightbox_modal");
 
 fetchAndShowPhotographerMedias();
 
@@ -223,22 +228,36 @@ function showTotalLikes() {
         '</p>' + '<i class="fas fa-heart total"></i>';
 }
 
-//Contact me button
-const contactButtonScroll = document.getElementById("contactButton");
-const bgModal = document.getElementById("contact_me_modal");
-const buttonClose = document.getElementsByClassName("close_modal")
-const media = document.getElementsByClassName("media");
-const lightboxModal = document.getElementById("lightbox_modal");
-let currentMediaIndex;
-let medaiQueryPhone = window.matchMedia("(max-width: 677px)")
+// open modal function
+function openModal(modal) {
+    modal.setAttribute("aria-hidden", "false")
+    $mainPhotographers.setAttribute('aria-hidden', 'true')
+    modal.style.display = "block"
+}
+// close modal function
+function closeModal(modal) {
+    modal.setAttribute("aria-hidden", "true")
+    $mainPhotographers.setAttribute('aria-hidden', 'false')
+    modal.style.display = "none";
+}
 
+function sentMessage() {
+}
+
+
+
+// lightBox open function 
 function openLightBox(index) {
+    openModal($lightboxModal);
+    showMediaInLighBox(index);
+}
+
+function showMediaInLighBox(index) {
     index = index % mediaList.length;
     let currentMedia = mediaList.at(index);
     currentMediaIndex = index;
     console.log(currentMedia);
-    lightboxModal.style.display = "block";
-    injectMedia = lightboxModal.getElementsByClassName("modal_body")[0];
+    injectMedia = $lightboxModal.getElementsByClassName("modal_body")[0];
     injectMedia.innerHTML = choiceMediaLightBox(currentMedia) +
         '<span class="close_modal close_modal_media "  onclick="closeLightBox()"  aria-label="Close contact form">' +
         '<i class="fas fa-times"></i>' +
@@ -261,31 +280,46 @@ function choiceMediaLightBox(media) {
     }
 }
 function previousMedia() {
-    openLightBox(currentMediaIndex - 1);
+    showMediaInLighBox(currentMediaIndex - 1);
 }
 function nextMedia() {
-    openLightBox(currentMediaIndex + 1);
+    showMediaInLighBox(currentMediaIndex + 1);
 }
 function closeLightBox() {
-    lightboxModal.style.display = "none";
+    closeModal($lightboxModal);
 }
-window.addEventListener('scroll', scroll);
 
-function scroll() {
+window.addEventListener('scroll', scrollEvent);
+
+function scrollEvent() {
+    const $contactButtonScroll = document.getElementById("contactButton");
     if (window.scrollY) {
-        contactButtonScroll.style.display = 'block';
+        $contactButtonScroll.style.display = 'block';
     } else {
-        contactButtonScroll.style.display = 'none';
+        $contactButtonScroll.style.display = 'none';
     }
-};
-// open modal function
-function openModal() {
-    bgModal.style.display = "block";
 }
-// close modal function
-function closeModal() {
-    bgModal.style.display = "none";
-}
-function sentMessage() {
 
-}
+// Close modal when escape key is pressed
+document.addEventListener('keydown', e => {
+    const keyCode = e.keyCode ? e.keyCode : e.which
+    if (keyCode === 27) {
+        if ($lightboxModal.getAttribute('aria-hidden') == 'false') {
+            closeModal($lightboxModal);
+        }
+        if ($contactMeModal.getAttribute('aria-hidden') == 'false') {
+            closeModal($contactMeModal);
+        }
+    }
+    if ($lightboxModal.getAttribute('aria-hidden') == 'false') {
+        if (keyCode === 39) {
+            nextMedia();
+        } else if (keyCode === 37) {
+            previousMedia();
+        }
+    }
+
+ })
+
+
+

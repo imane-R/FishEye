@@ -11,14 +11,14 @@
     <title>FishEye - Nos photographes</title>
 </head>
 
-<body>
+<body id="body">
     <header class="header" role="banner">
         <a class="header_logo" href="index.html">
             <img src="./images/logo.svg" role="link image" alt="Fisheye Home page">
         </a>
     </header>
-    <main class="main_photgraphe">
-        <button type="button" id="contactButton" onclick="openModal()">Contactez-moi
+    <main id="main_photgraphers" aria-hidden="false">
+        <button type="button" id="contactButton" onclick="openModal($contactMeModal)">Contactez-moi
         </button>
     
         <section id="banner_photographe_container">
@@ -45,11 +45,11 @@
             
             <!--Contact form-->
     </main>
-    <div id="contact_me_modal" class="container-modal">
+    <div id="contact_me_modal" class="container-modal" aria-hidden="true" role="dialog" aria-describedby="modalSendMessage">
         <div class="content_modal">
             <div class="modal_body">
                 <div class="modal_header">
-                    <span class="close_modal"  onclick="closeModal()"  aria-label="Close contact form">
+                    <span class="close_modal"  onclick="closeModal($contactMeModal)"  aria-label="Close contact form">
                         <i class="fas fa-times"></i>
                     </span>
                 </div>
@@ -58,12 +58,12 @@
                     <fieldset>
                         <legend id="modal_title">  Contactez-moi </legend>
                                             <!--First name field-->
-                    <label for="prenom" class="label-first-name">Prénom</label>
+                    <label for="first-name" class="label-first-name">Prénom</label>
                     <input class="text-control" type="text" id="first-name" aria-label="First name"
                         aria-required="true" name="first name" />
                         <span id="error_firstName"></span>
                     <!--last name field-->
-                    <label for="nom" class="label-last-name">Nom</label>
+                    <label for="last-name" class="label-last-name">Nom</label>
                     <input class="text-control" type="text" id="last-name" aria-label="Last name"
                         aria-required="true" name="last name" />
                     <span id="erreur_lastName"></span>
@@ -85,7 +85,7 @@
         </div>
     </div>
 
-    <div id="lightbox_modal" class="container-modal">
+    <div id="lightbox_modal" class="container-modal" aria-hidden="true" role="dialog" aria-describedby="modalLightbox">
         <div class="content_modal">
             <div class="modal_body">
             </div>
