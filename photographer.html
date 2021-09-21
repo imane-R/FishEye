@@ -26,7 +26,7 @@
         </section>
         <section class="sortBy">
             <label class="sortby_label" for="trier" aria-label="Order by">Trier par</label>
-            <select class="dropdown" name="trigger" id="trier" onchange="changeDropDownEvent()">
+            <select class="dropdown" name="trigger" id="trier">
                 <option class="dropdown_list" value="likes">Popularité</option>
                 <option class="dropdown_list" value="date">Date</option>
                 <option class="dropdown_list" value="title">Titre</option>
@@ -50,7 +50,7 @@
             <div class="modal_body">
                 <div class="modal_header">
                     <span class="close_modal"  onclick="closeModal($contactMeModal)"  aria-label="Close contact form">
-                        <i class="fas fa-times"></i>
+                        <em class="fas fa-times"></em>
                     </span>
                 </div>
                 <form class="modal_formulaire" id="formulaire" action="" method="get"

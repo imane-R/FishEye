@@ -260,7 +260,7 @@ function showMediaInLighBox(index) {
     injectMedia = $lightboxModal.getElementsByClassName("modal_body")[0];
     injectMedia.innerHTML = choiceMediaLightBox(currentMedia) +
         '<span class="close_modal close_modal_media "  onclick="closeLightBox()"  aria-label="Close contact form">' +
-        '<i class="fas fa-times"></i>' +
+        '<em class="fas fa-times"></em>' +
         '</span>' +
         '<i class="fas fa-chevron-right" onclick="nextMedia()">' + '</i>' +
         '<i class="fas fa-chevron-left" onclick="previousMedia()">' + '</i>' +
@@ -319,7 +319,9 @@ document.addEventListener('keydown', e => {
         }
     }
 
- })
+ });
+
+ document.getElementById("trier").addEventListener("change", changeDropDownEvent);
 
 
 
