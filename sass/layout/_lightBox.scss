@@ -49,6 +49,17 @@
         margin: 0px;
     }
 }
+@media  (max-width: 818px) and (min-width: 771px){
+    #lightbox_modal{
+        .current_media {
+            width: 516px;
+            height: 415px;
+        }
+        .media-title{
+            padding-right: 327px;
+        }
+    }    
+}
 @media (max-width: 667px){
     #lightbox_modal{
         .current_media {

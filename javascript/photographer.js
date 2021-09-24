@@ -155,8 +155,6 @@ function creatMedias(media) {
     let media_photographe = document.createElement('div');
     media_photographe.classList.add('media_photographe');
     media_photographe.innerHTML =
-        '<div class="media-container">' +
-        '</div>' +
         mediaChoice(media) +
         '<div class="media_texte">' +
         '<p class="media_title">' +
@@ -166,7 +164,7 @@ function creatMedias(media) {
         '<p class="nb_likes">' +
         media.likes +
         '</p>' +
-        '<i class="fas fa-heart" onclick = "incrementLikes(event)"></i>' +
+        '<i class="fas fa-heart" tabindex="0" onclick = "incrementLikes(event)" title= "add like"></i>' +
         '</div>' +
         '</div>';
 
@@ -198,7 +196,9 @@ function mediaChoice(media) {
         return (
             '<img class="media" src="' + mediaPath +
             '" alt="' +
-            media.alt +
+            media.title +
+            'role="img"'+
+            '" tabindex="0' +
             '" onclick = "openLightBox(' + (mediaList.length - 1) + ')"' +
             '>'
         )
@@ -210,7 +210,7 @@ function mediaChoice(media) {
             name: media.title,
         });
         return (
-            '<video class="media" onclick = "openLightBox(' + (mediaList.length - 1) + ')" >' +
+            '<video class="media" tabindex="0" onclick = "openLightBox(' + (mediaList.length - 1) + ')" >' +
             '<source src="' + mediaPath +
             '" type = "video/mp4"' +
             '>' +
@@ -225,7 +225,7 @@ function showTotalLikes() {
     let total_likes = document.getElementById('total-likes');
     total_likes.innerHTML =
         '<p class ="total_likes">' + totalLikes +
-        '</p>' + '<i class="fas fa-heart total"></i>';
+        '</p>' + '<i class="fas fa-heart total></i>';
 }
 
 // open modal function
@@ -260,15 +260,15 @@ function showMediaInLighBox(index) {
     injectMedia = $lightboxModal.getElementsByClassName("modal_body")[0];
     injectMedia.innerHTML = choiceMediaLightBox(currentMedia) +
         '<span class="close_modal close_modal_media "  onclick="closeLightBox()"  aria-label="Close contact form">' +
-        '<em class="fas fa-times"></em>' +
+        '<i class="fas fa-times title= "close modal""></i>' +
         '</span>' +
-        '<i class="fas fa-chevron-right" onclick="nextMedia()">' + '</i>' +
-        '<i class="fas fa-chevron-left" onclick="previousMedia()">' + '</i>' +
+        '<i class="fas fa-chevron-right" onclick="nextMedia()" title= "go to next media">' + '</i>' +
+        '<i class="fas fa-chevron-left" onclick="previousMedia()" title= "go to the previous media">' + '</i>' +
         '<p class="media-title">' + currentMedia.name + '</p>';
 }
 function choiceMediaLightBox(media) {
     if (media.type == "image") {
-        return ('<img class="current_media" src="' + media.src + '" >'
+        return ('<img class="current_media" src="' + media.src + '" role="img" >'
         );
     } else if (media.type == "video") {
         return ('<video class="current_media" controls>' +
@@ -292,7 +292,7 @@ function closeLightBox() {
 window.addEventListener('scroll', scrollEvent);
 
 function scrollEvent() {
-    const $contactButtonScroll = document.getElementById("contactButton");
+    const $contactButtonScroll = document.getElementById("contactButtonPhone");
     if (window.scrollY) {
         $contactButtonScroll.style.display = 'block';
     } else {
@@ -316,6 +316,10 @@ document.addEventListener('keydown', e => {
             nextMedia();
         } else if (keyCode === 37) {
             previousMedia();
+        }
+    } else {
+        if (keyCode === 13) {
+            document.activeElement.click()
         }
     }
 

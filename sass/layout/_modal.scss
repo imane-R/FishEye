@@ -1,5 +1,6 @@
 
     #contact_me_modal{
+        display: none;
         position: fixed;
         z-index: 1;
         left: 0;
@@ -118,5 +119,44 @@
             border-color: $color_primary;
             width: 136px;
             height: 53px;
+        }
+    }
+    @media (max-width: 770px) {
+        #contact_me_modal{
+            .content_modal{
+                width: 371px;
+                height: 809px;
+            }
+            .fa-times{
+                font-size: 25px;
+            }
+            #modal_title{
+                font-size: 37px;
+            }
+            .label-first-name{
+                top: 18%;
+                font-size: 28px;
+            }
+            #first-name{
+                top: 23%;
+            }
+            .label-last-name{
+                top: 33%;
+                font-size: 28px;
+            }
+            #last-name{
+                top: 38%;
+            }
+            .label-email{
+                top: 47%;
+                font-size: 28px;
+            }
+            .label-message{
+                top: 61%;
+                font-size: 28px;
+            }
+            #message{
+                top: 66%;
+            }
         }
     }

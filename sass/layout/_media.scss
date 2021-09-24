@@ -8,10 +8,11 @@
     position: relative;
     max-width: fit-content;
     margin-bottom: 9px;
+    cursor: pointer;
   }
  
   .media {
-    width: 22rem;
+    width: 30rem;
     height: 16rem;
     object-fit: cover;
     border-radius: 0.3rem;
@@ -47,6 +48,11 @@
     top: 88%;
     right: 0%;
   }
+  @media  (max-width: 818px) and (min-width: 771px){
+    #medias_photographe {
+        justify-content: center;
+    }
+}
   @media (max-width: 667px){
     #medias_photographe{
         display: flex;
@@ -61,5 +67,13 @@
         .fa-heart{
           top: 86%;
         }
+    }
+  }
+
+  @media (min-width: 667px){
+    #medias_photographe:after {
+      content: '';
+      flex-grow: 0;
+      width: 30rem;
     }
   }
