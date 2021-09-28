@@ -23,7 +23,7 @@
         #modal_title{
             position: absolute;
             left: 5.23%;
-            right: 22%;
+            right: 13%;
             top: 2%;
             font-size: 56px;
             margin-top: 0px;
@@ -124,14 +124,15 @@
     @media (max-width: 770px) {
         #contact_me_modal{
             .content_modal{
-                width: 371px;
-                height: 809px;
+                width: 375px;
+                height: 812px;
+                border-radius: 0;
             }
             .fa-times{
                 font-size: 25px;
             }
             #modal_title{
-                font-size: 37px;
+                font-size: 35px;
             }
             .label-first-name{
                 top: 18%;

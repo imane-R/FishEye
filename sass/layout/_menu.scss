@@ -7,20 +7,83 @@
     font-size: 1.1rem;
     font-weight: 700;
   }
-  .dropdown {
-    margin-left: 1rem;
-    background-color: $color_primary;
-    font-size: 1.2rem;
-    font-weight: 700;
-    padding: 1rem;
-    border: none;
-    border-radius: 0.31rem;
-    color: $color_white;
-    cursor: pointer;
-    .dropdown_list{
-      background-color: $color_primary;
-    }
+  /*the container must be positioned relative:*/
+.dropdown {
+  position: relative;
+  left: 91px;
+  top: -26px;
+}
+
+.dropdown select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: $color_primary;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  left: 148px;
+  top: 17px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 9px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 13px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  width: 141px;
+  :after{
+    content: "";
+    width: 90%;
+    margin-top: 15px;
+    height: 0.01rem;
+    background-color: black;
+    position: absolute;
+    display: block;
+    top: 12px;
+    left: 0;
+    bottom: 0;
   }
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: $color_primary;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  width: 175px;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.same-as-selected {
+  display: none;
+}
+
+.select-items div:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
   @media (max-width: 799px) {
     .sortBy{
       display: none;

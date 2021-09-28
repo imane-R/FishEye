@@ -26,12 +26,8 @@
         left: 4%;
         top: 5%;
         font-weight: lighter;
-        font-size: 49px;
+        font-size: 46px;
         color: $color_secondary;
-        white-space: nowrap; 
-        width: 321px; 
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
     .city_country_banner{
         position: absolute;
@@ -59,7 +55,7 @@
 }
 #contactButtonDesktop{
     position: absolute;
-    left: 46%;
+    left: 56%;
     top: 166px;
     z-index: 1;
     border-radius: 5px;
@@ -76,9 +72,10 @@
   #contactButtonPhone {
     display: none !important;
 }
-@media  (max-width: 818px) and (min-width: 771px){
+@media  (max-width: 913px) and (min-width: 771px){
     #contactButtonDesktop{
         top: 227px;
+        left: 47%;
     }
 }
 @media (max-width: 770px) {
@@ -123,8 +120,8 @@
     #contactButtonPhone {
         display: block !important;
         position: fixed;
-        top: 10%;
-        margin-left: 110px;
+        top: 8%;
+        left: 33%;
         height: 23px;
         z-index: 1;
         background-color: $color_primary;

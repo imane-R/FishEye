@@ -9,6 +9,7 @@ const $body = document.getElementById("body")
 const $contactMeModal = document.getElementById("contact_me_modal");
 const $lightboxModal = document.getElementById("lightbox_modal");
 
+initCustomSelect();
 fetchAndShowPhotographerMedias();
 
 /**
@@ -51,7 +52,7 @@ function fetchAndShowPhotographerMedias() {
 
 /**
  * draw sorted medias by attribute likes, date, title
-  * @param {String} attribute attribute on which medias shoud be sorted 
+  * @param {String} attribute attribute on which medias should be sorted 
  */
 function showMediasByAttribute(attribute) {
     document.getElementById("medias_photographe").innerHTML = '';
@@ -97,9 +98,91 @@ function titleComparator(a, b) {
  *  On change dropDown, call showMediasByAttribute function
  */
 function changeDropDownEvent() {
-    let selectedChoice = document.getElementById("trier").value;
+    let selectedChoice = document.getElementById("trier").getElementsByClassName('same-as-selected')[0].getAttribute('data-value');
     showMediasByAttribute(selectedChoice);
 }
+
+function closeAllSelect(element) {
+    /*a function that will close all select boxes in the document,
+except the current select box:*/
+    var selectItemsElements, selectSelectedElements, arrNo = [];
+    selectItemsElements = document.getElementsByClassName("select-items");
+    selectSelectedElements = document.getElementsByClassName("select-selected");
+
+    for (let i = 0; i < selectSelectedElements.length; i++) {
+        if (element == selectSelectedElements[i]) {
+            arrNo.push(i)
+        } else {
+            selectSelectedElements[i].classList.remove("select-arrow-active");
+        }
+    }
+    for (let i = 0; i < selectItemsElements.length; i++) {
+        if (arrNo.indexOf(i)) {
+            selectItemsElements[i].classList.add("select-hide");
+        }
+    }
+}
+
+document.addEventListener("click", closeAllSelect);
+
+function initCustomSelect() {
+    /**
+ *  look for any elements with the class "dropdown"
+ */
+    let dropDownSelect, selElement, selectedItem, optionList, newSelectBox;
+    dropDownSelect = document.getElementsByClassName('dropdown');
+    for (let i = 0; i < dropDownSelect.length; i++) {
+        selElement = dropDownSelect[i].getElementsByTagName('select')[0];
+        /*for each element, create a new DIV that will act as the selected item:*/
+        selectedItem = document.createElement('div');
+        selectedItem.setAttribute('class', 'select-selected');
+        selectedItem.innerHTML = selElement.options[selElement.selectedIndex].innerHTML;
+        dropDownSelect[i].appendChild(selectedItem);
+        /*for each element, create a new DIV that will contain the option list:*/
+        optionList = document.createElement('div');
+        optionList.setAttribute('class', 'select-items select-hide');
+        for (let i = 0; i < selElement.length; i++) {
+            /*for each option in the original select element,create a new DIV that will act as an option item:*/
+            optionItem = document.createElement('div');
+            optionItem.innerHTML = selElement.options[i].innerHTML;
+            optionItem.setAttribute('data-value', selElement.options[i].getAttribute('value'));
+            if (i === 0) {
+                optionItem.classList.add('same-as-selected');
+            }
+            optionItem.addEventListener("click", function (e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                let newSelectBox, previousElement, sameAsSelected;
+                newSelectBox = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                previousElement = this.parentNode.previousSibling;
+                for (let i = 0; i < newSelectBox.length; i++) {
+                    if (newSelectBox.options[i].innerHTML == this.innerHTML) {
+                        newSelectBox.selectedIndex = i;
+                        previousElement.innerHTML = this.innerHTML;
+                        sameAsSelected = this.parentNode.getElementsByClassName("same-as-selected");
+                        for (let i = 0; i < sameAsSelected.length; i++) {
+                            sameAsSelected[i].classList.remove("same-as-selected");
+                        }
+                        this.setAttribute("class", "same-as-selected");
+                        break;
+                    }
+
+                }
+                previousElement.click();
+                changeDropDownEvent();
+            });
+            optionList.appendChild(optionItem);
+        }
+        dropDownSelect[i].appendChild(optionList);
+        selectedItem.addEventListener("click", function (e) {
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
+        });
+    }
+}
+
 
 /**
  *  create tags 
@@ -197,7 +280,7 @@ function mediaChoice(media) {
             '<img class="media" src="' + mediaPath +
             '" alt="' +
             media.title +
-            'role="img"'+
+            'role="img"' +
             '" tabindex="0' +
             '" onclick = "openLightBox(' + (mediaList.length - 1) + ')"' +
             '>'
@@ -258,20 +341,23 @@ function showMediaInLighBox(index) {
     currentMediaIndex = index;
     console.log(currentMedia);
     injectMedia = $lightboxModal.getElementsByClassName("modal_body")[0];
-    injectMedia.innerHTML = choiceMediaLightBox(currentMedia) +
+    injectMedia.innerHTML ='<ul class = "img_title_lightbox ">'+
+    '<li>'+ choiceMediaLightBox(currentMedia) +'</li>'+
+    '<li class="media-title">' + currentMedia.name + '</li>'+
+        '</ul>'+
         '<span class="close_modal close_modal_media "  onclick="closeLightBox()"  aria-label="Close contact form">' +
-        '<i class="fas fa-times title= "close modal""></i>' +
+        '<i class="fas fa-times" title="close modal"></i>' +
         '</span>' +
         '<i class="fas fa-chevron-right" onclick="nextMedia()" title= "go to next media">' + '</i>' +
-        '<i class="fas fa-chevron-left" onclick="previousMedia()" title= "go to the previous media">' + '</i>' +
-        '<p class="media-title">' + currentMedia.name + '</p>';
+        '<i class="fas fa-chevron-left" onclick="previousMedia()" title= "go to the previous media">' + '</i>';
+        
 }
 function choiceMediaLightBox(media) {
     if (media.type == "image") {
         return ('<img class="current_media" src="' + media.src + '" role="img" >'
         );
     } else if (media.type == "video") {
-        return ('<video class="current_media" controls>' +
+        return ('<video class="current_media video_current_media" controls>' +
             '<source src="' + media.src +
             '" type = "video/mp4"' +
             '>' +
@@ -323,9 +409,7 @@ document.addEventListener('keydown', e => {
         }
     }
 
- });
-
- document.getElementById("trier").addEventListener("change", changeDropDownEvent);
+});
 
 
 
