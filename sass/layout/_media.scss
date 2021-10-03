@@ -45,7 +45,7 @@
     color: $color_primary;
     position: absolute;
     margin-left: .4rem;
-    top: 88%;
+    top: 89%;
     right: 0%;
   }
   @media (max-width: 1599px) and (min-width:1120px){
@@ -63,6 +63,9 @@
         height: 21rem;
       }
   } 
+  .fa-heart{
+    top: 91%;
+  }
 }
   @media  (max-width: 818px) and (min-width: 771px){
     #medias_photographe {
