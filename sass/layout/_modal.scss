@@ -56,7 +56,7 @@
         .label-last-name{
             position: absolute;
             left: 5%;
-            top: 35%;
+            top: 37%;
             font-size: 36px;
             font-weight: lighter;
             color: $color_modal_font;
@@ -65,7 +65,7 @@
             position: absolute;
             background: $color_white;
             left: 5.23%;
-            top: 40%;
+            top: 42%;
             border-radius: 5px;
             width: 88%;
             height: 60px;
@@ -74,7 +74,7 @@
         .label-email{
             position: absolute;
             left: 5%;
-            top: 47%;
+            top: 51%;
             font-size: 36px;
             font-weight: lighter;
             color: $color_modal_font;
@@ -83,7 +83,7 @@
             position: absolute;
             background: $color_white;
             left: 5.23%;
-            top: 52%;
+            top: 56%;
             border-radius: 5px;
             width: 88%;
             height: 60px;
@@ -92,7 +92,7 @@
         .label-message{
             position: absolute;
             left: 5%;
-            top: 59%;
+            top: 65%;
             font-size: 36px;
             font-weight: lighter;
             color: $color_modal_font;
@@ -101,7 +101,7 @@
             position: absolute;
             background: $color_white;
             left: 5.23%;
-            top: 65%;
+            top: 71%;
             border-radius: 5px;
             width: 88%;
             height: 170px;
@@ -110,7 +110,7 @@
         .btn_submit{
             position: absolute;
             left: 5%;
-            top: 89%;
+            top: 93%;
             font-size: 18px;
             font-weight: lighter;
             color: $color_white;
@@ -119,6 +119,26 @@
             border-color: $color_primary;
             width: 136px;
             height: 53px;
+        }
+        #error_firstName{
+            position: absolute;
+            top: 36%;
+            left: 5%;
+        }
+        #error_lastName{
+            position: absolute;
+            top: 50%;
+            left: 5%;
+        }
+        #error_email{
+            position: absolute;
+            top: 64%;
+            left: 5%;
+        }
+        #error_message{
+            position: absolute;
+            top: 91%;
+            left: 5%;
         }
     }
     @media (max-width: 770px) {
@@ -135,11 +155,17 @@
                 font-size: 35px;
             }
             .label-first-name{
-                top: 18%;
+                top: 16%;
                 font-size: 28px;
             }
             #first-name{
-                top: 23%;
+                top: 21%;
+            }
+            #error_firstName{
+                top: 29%;
+            }
+            #error_lastName{
+                top: 46%;
             }
             .label-last-name{
                 top: 33%;
@@ -149,15 +175,18 @@
                 top: 38%;
             }
             .label-email{
-                top: 47%;
+                top: 50%;
                 font-size: 28px;
             }
+            #email{
+                top: 55%;
+            }
             .label-message{
-                top: 61%;
+                top: 65%;
                 font-size: 28px;
             }
             #message{
-                top: 66%;
+                top: 70%;
             }
         }
     }

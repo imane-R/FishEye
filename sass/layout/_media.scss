@@ -48,9 +48,26 @@
     top: 88%;
     right: 0%;
   }
+  @media (max-width: 1599px) and (min-width:1120px){
+    #medias_photographe {
+      .media {
+        width: 24rem;
+      }
+  } 
+  }
+  @media (max-width: 1313px) and (min-width:819px){
+    #medias_photographe {
+      justify-content: center;
+      .media {
+        width: 40rem;
+        height: 21rem;
+      }
+  } 
+}
   @media  (max-width: 818px) and (min-width: 771px){
     #medias_photographe {
         justify-content: center;
+        margin-top: 10%;
     }
 }
   @media (max-width: 667px){

@@ -1,0 +1,9 @@
+@mixin bouton {
+    width: 170px;
+    height: 69px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: $couleur-primaire;
+    cursor: pointer;
+  }

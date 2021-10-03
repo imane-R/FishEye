@@ -1,4 +1,3 @@
-
 let medias = [];
 let mediaList = [];
 let fullMediaList = [];
@@ -8,6 +7,17 @@ const $mainPhotographers = document.getElementById("main_photgraphers")
 const $body = document.getElementById("body")
 const $contactMeModal = document.getElementById("contact_me_modal");
 const $lightboxModal = document.getElementById("lightbox_modal");
+const firstName = document.getElementById("first-name");
+const errorFirstName = document.getElementById("error_firstName");
+const lastName = document.getElementById("last-name");
+const errorLastName = document.getElementById("error_lastName");
+const email = document.getElementById("email");
+const errorEmail = document.getElementById("error_email");
+const message  = document.getElementById("message");
+const errorMessage = document.getElementById("error_message");
+//Regex
+const regexLettres = /^[a-zA-Z-\s]+$/;
+const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
 initCustomSelect();
 fetchAndShowPhotographerMedias();
@@ -129,23 +139,28 @@ function initCustomSelect() {
     /**
  *  look for any elements with the class "dropdown"
  */
-    let dropDownSelect, selElement, selectedItem, optionList, newSelectBox;
+    let dropDownSelect, selElement, selectedItem, optionList;
     dropDownSelect = document.getElementsByClassName('dropdown');
     for (let i = 0; i < dropDownSelect.length; i++) {
         selElement = dropDownSelect[i].getElementsByTagName('select')[0];
         /*for each element, create a new DIV that will act as the selected item:*/
         selectedItem = document.createElement('div');
         selectedItem.setAttribute('class', 'select-selected');
+
+        selectedItem.tabIndex="0";
         selectedItem.innerHTML = selElement.options[selElement.selectedIndex].innerHTML;
         dropDownSelect[i].appendChild(selectedItem);
         /*for each element, create a new DIV that will contain the option list:*/
         optionList = document.createElement('div');
         optionList.setAttribute('class', 'select-items select-hide');
+        
         for (let i = 0; i < selElement.length; i++) {
             /*for each option in the original select element,create a new DIV that will act as an option item:*/
             optionItem = document.createElement('div');
             optionItem.innerHTML = selElement.options[i].innerHTML;
             optionItem.setAttribute('data-value', selElement.options[i].getAttribute('value'));
+            optionItem.setAttribute('role', 'option');
+            optionItem.tabIndex ="0";
             if (i === 0) {
                 optionItem.classList.add('same-as-selected');
             }
@@ -315,16 +330,59 @@ function showTotalLikes() {
 function openModal(modal) {
     modal.setAttribute("aria-hidden", "false")
     $mainPhotographers.setAttribute('aria-hidden', 'true')
+    $mainPhotographers.style.display = "none";
     modal.style.display = "block"
 }
 // close modal function
 function closeModal(modal) {
     modal.setAttribute("aria-hidden", "true")
     $mainPhotographers.setAttribute('aria-hidden', 'false')
+    $mainPhotographers.style.display = "block";
     modal.style.display = "none";
 }
-
+// rest error message
+function restErrorMessage(){
+    errorFirstName.textContent = "";
+    errorLastName.textContent = "";
+    errorEmail.textContent = "";
+    errorMessage.textContent = "";
+  } 
 function sentMessage() {
+    restErrorMessage ()
+    let isValid = true;
+    //verification the first name is empty or less than 2 characters or contains numbers
+    if (!firstName.value || firstName.value.length <= 2 || regexLettres.test(firstName.value) == false) {
+      errorFirstName.textContent = "Le prénom doit comporter 2 charactères minimum sans accent et uniquement des lettres.";
+      errorFirstName.style.fontSize = "12px";
+      errorFirstName.style.color = "red";
+      isValid = false;
+    }
+    /*verification the name is empty or less than 2 characters or contains numbers*/
+
+  if (!lastName.value || lastName.value.length <= 2 || regexLettres.test(lastName.value) == false) {
+    errorLastName.textContent = "Le nom doit comporter 2 charactères minimum sans accent et uniquement des lettres.."
+    errorLastName.style.fontSize = "12px";
+    errorLastName.style.color = "red";
+    isValid = false;
+  }
+  //verivication the email is valid or not 
+  if (regexMessagerie.test(email.value) == false) {
+    errorEmail.textContent = "L'adresse de messagerie n'est pas valide.."
+    errorEmail.style.fontSize = "12px";
+    errorEmail.style.color = "red";
+    isValid = false;
+  }
+  if ( message.value == false){
+    errorMessage.textContent = "Veuillez écrire votre message.."
+    errorMessage.style.fontSize = "12px";
+    errorMessage.style.color = "red";
+    isValid = false;
+  }
+  console.log( "first name :" + firstName.value + '\n' +"last name :" + lastName.value+ '\n' +"email:" + email.value+ '\n' + "message :"+ '\n'+ message.value );
+ if (isValid){
+    closeModal($contactMeModal);
+ }
+  return isValid;
 }
 
 
@@ -410,6 +468,3 @@ document.addEventListener('keydown', e => {
     }
 
 });
-
-
-

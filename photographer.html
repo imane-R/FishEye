@@ -26,16 +26,19 @@
         <section id="banner_photographe_container">
             <!--Photographer banner injection in JS-->
         </section>
-        <section class="sortBy">
-            <label class="sortby_label" for="trier" aria-label="Order by">Trier par</label>
-            <div class="dropdown" name="trigger" id="trier">
-                <select>
-                    <option  value="likes" role="option">Popularité</option>
-                    <option  value="date" role="option">Date</option>
-                    <option  value="title" role="option">Titre</option>
-                <select>
-                </div>
-        </section>
+        
+      <!-- Section 2 : Filtre -->
+      <section class="sortBy">
+        <label class="sortby_label" for="trier" aria-label="Order by">Trier par</label>
+        <div class="dropdown" name="trigger" id="trier">
+            <select>
+                <option  value="likes" role="option" tabindex="0">Popularité</option>
+                <option  value="date" role="option" tabindex="0">Date</option>
+                <option  value="title" role="option" >Titre</option>
+            <select>
+            </div>
+    </section>
+
         <section id="medias_photographe">
             <!--Photographer's media presentation-->
         </section>
@@ -48,12 +51,12 @@
             
             <!--Contact form-->
     </main>
-    <div id="contact_me_modal" class="container-modal" aria-hidden="true" role="dialog" aria-describedby="modalSendMessage">
+    <div id="contact_me_modal" class="container-modal" aria-hidden="true" role="dialog" aria-describedby="modalSendMessage" tabindex="0">
         <div class="content_modal">
             <div class="modal_body">
                 <div class="modal_header">
-                    <span class="close_modal"  onclick="closeModal($contactMeModal)"  aria-label="Close contact form">
-                        <em class="fas fa-times"></em>
+                    <span class="close_modal"  onclick="closeModal($contactMeModal)"  aria-label="Close contact form" >
+                        <em class="fas fa-times" tabindex="0"></em>
                     </span>
                 </div>
                 <form class="modal_formulaire" id="formulaire" action="" method="get"
@@ -62,31 +65,33 @@
                         <legend id="modal_title">  Contactez-moi </legend>
                                             <!--First name field-->
                     <label for="first-name" class="label-first-name">Prénom</label>
-                    <input class="text-control" type="text" id="first-name" aria-label="First name"
+                    <input tabindex="0" class="text-control focus-modal" type="text" id="first-name" aria-label="First name"
                         aria-required="true" name="first name" />
                         <span id="error_firstName"></span>
                     <!--last name field-->
                     <label for="last-name" class="label-last-name">Nom</label>
-                    <input class="text-control" type="text" id="last-name" aria-label="Last name"
+                    <input  tabindex="0" class="text-control focus-modal" type="text" id="last-name" aria-label="Last name"
                         aria-required="true" name="last name" />
-                    <span id="erreur_lastName"></span>
+                    <span id="error_lastName"></span>
                     <!--email field-->
                     <label for="email" class="label-email">Email</label>
-                    <input class="text-control" type="email" id="email" aria-label="Email" aria-required="true"
+                    <input  tabindex="0" class="text-control focus-modal" type="email" id="email" aria-label="Email" aria-required="true"
                         name="email" />
-                    <span id="erreur_email"></span>
+                    <span id="error_email"></span>
                     <!--message field-->
                     <label for="message" class="label-message">Votre message</label>
-                    <textarea class="text-control" name="message" id="message" aria-label="Your message"></textarea>
-                    <span id="erreur_essage"></span>
+                    <textarea  tabindex="0" class="text-control focus-modal" name="message" id="message" aria-label="Your message"></textarea>
+                    <span id="error_message"></span>
                     <!--send button-->
-                    <button class="btn_submit" type="submit"  aria-label="Send"  >Envoyer</button>
+                    <button class="btn_submit focus-modal" type="button"  aria-label="Send" tabindex="0" onclick="sentMessage()" >Envoyer</button>
                     </fieldset>
 
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- lightbox_modal-->
 
     <div id="lightbox_modal" class="container-modal" aria-hidden="true" role="dialog" aria-describedby="modalLightbox">
         <div class="content_modal">
