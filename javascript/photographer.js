@@ -323,7 +323,9 @@ function showTotalLikes() {
     let total_likes = document.getElementById('total-likes');
     total_likes.innerHTML =
         '<p class ="total_likes">' + totalLikes +
-        '</p>' + '<i class="fas fa-heart total></i>';
+        '</p>' +
+         '<i class="fas fa-heart total">'+ 
+         '</i>';
 }
 
 // open modal function
