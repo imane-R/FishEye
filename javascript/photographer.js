@@ -181,7 +181,6 @@ function initCustomSelect() {
                         this.setAttribute("class", "same-as-selected");
                         break;
                     }
-
                 }
                 previousElement.click();
                 changeDropDownEvent();
@@ -217,7 +216,7 @@ function createTag(elementTag) {
 }
 
 /**
- *  creat banner by showing photographer name, photo, city, country, tagline and call creatTag function
+ *  create banner by showing photographer name, photo, city, country, tagline and call creatTag function
  */
 function createUIPhotographerBanner(photographer) {
 
@@ -246,7 +245,7 @@ function createUIPhotographerBanner(photographer) {
 };
 
 /**
- *  
+ *  create media with likes and their names
  */
 function creatMedias(media) {
 
@@ -374,6 +373,7 @@ function sentMessage() {
     errorEmail.style.color = "red";
     isValid = false;
   }
+  //verification the message if it's empty 
   if ( message.value == false){
     errorMessage.textContent = "Veuillez écrire votre message.."
     errorMessage.style.fontSize = "12px";
@@ -394,7 +394,7 @@ function openLightBox(index) {
     openModal($lightboxModal);
     showMediaInLighBox(index);
 }
-
+// creat lightbox structure 
 function showMediaInLighBox(index) {
     index = index % mediaList.length;
     let currentMedia = mediaList.at(index);
@@ -412,6 +412,7 @@ function showMediaInLighBox(index) {
         '<i class="fas fa-chevron-left" onclick="previousMedia()" title= "go to the previous media">' + '</i>';
         
 }
+// create image or video for the  lightbox
 function choiceMediaLightBox(media) {
     if (media.type == "image") {
         return ('<img class="current_media" src="' + media.src + '" role="img" >'
@@ -425,25 +426,16 @@ function choiceMediaLightBox(media) {
         );
     }
 }
+// functions to navigate tn the lightbox
 function previousMedia() {
     showMediaInLighBox(currentMediaIndex - 1);
 }
 function nextMedia() {
     showMediaInLighBox(currentMediaIndex + 1);
 }
+
 function closeLightBox() {
     closeModal($lightboxModal);
-}
-
-window.addEventListener('scroll', scrollEvent);
-
-function scrollEvent() {
-    const $contactButtonScroll = document.getElementById("contactButtonPhone");
-    if (window.scrollY) {
-        $contactButtonScroll.style.display = 'block';
-    } else {
-        $contactButtonScroll.style.display = 'none';
-    }
 }
 
 // Close modal when escape key is pressed
