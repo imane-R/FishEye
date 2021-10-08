@@ -1,5 +1,5 @@
 .sortBy {
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 45px;
     max-width: fit-content;
   }
@@ -7,6 +7,9 @@
   .sortby_label {
     font-size: 1.1rem;
     font-weight: 700;
+    position: absolute;
+    left: -87px;
+    top: 26%;
   }
   /*the container must be positioned relative:*/
 .dropdown {
