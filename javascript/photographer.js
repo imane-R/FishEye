@@ -308,18 +308,15 @@ function mediaChoice(media) {
             name: media.title,
         });
         return (
-            '<video class="media" tabindex="0" >' +
+            '<video class="media" tabindex="0"'+ 
+             'onclick = "openLightBox(' + (mediaList.length - 1) + ')"'+
+            '>' +
             '<source src="' + mediaPath +
             '" type = "video/mp4"' +
             '>' +
-            '" onclick = "openLightBox(' + (mediaList.length - 1) + ')"' +
             '</video>'
         )
     }
-    /*let openMedia = document.getElementsByClassName('media');
-    for (let i = 0; i < openMedia.length; i++) {
-        openMedia[i].addEventListener('click', openLightBox);
-    }*/
 }
 
 //injection de la bannière total deslikes
