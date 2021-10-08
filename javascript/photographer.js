@@ -264,9 +264,14 @@ function creatMedias(media) {
     document
         .getElementById('medias_photographe')
         .appendChild(media_photographe);
-    let likesClick = document.getElementsByClassName('fa-heart');
-    for (let i = 0; i < likesClick.length; i++) {
-        likesClick[i].addEventListener('click', incrementLikes);
+
+    let heartElements = document.getElementsByClassName('fa-heart');
+    for (let i = 0; i < heartElements.length; i++) {
+        heartElements[i].addEventListener('click', incrementLikes);
+    }
+    let mediaElements = document.getElementsByClassName('media');
+    for (let i = 0; i < mediaElements.length; i++) {
+        mediaElements[i].addEventListener('click', openLightBox);
     }
 }
 function incrementLikes(event) {
@@ -296,8 +301,8 @@ function mediaChoice(media) {
             '" alt="' +
             media.title +
             'role="img"' +
-            '" tabindex="0' +
-            '" onclick = "openLightBox(' + (mediaList.length - 1) + ')"' +
+            '" tabindex="0"' +
+            'data-media-index="' + (mediaList.length - 1) + '"' +
             '>'
         )
     } else if (media.video) {
@@ -309,7 +314,7 @@ function mediaChoice(media) {
         });
         return (
             '<video class="media" tabindex="0"'+ 
-             'onclick = "openLightBox(' + (mediaList.length - 1) + ')"'+
+            'data-media-index="' + (mediaList.length - 1) + '"' +
             '>' +
             '<source src="' + mediaPath +
             '" type = "video/mp4"' +
@@ -393,14 +398,12 @@ document.getElementById('btn_submit').addEventListener('click', sentMessage);
 
 
 // lightBox open function 
-function openLightBox(index) {
+function openLightBox(event) {
+    var index = event.currentTarget.getAttribute('data-media-index');
     openModal($lightboxModal);
     showMediaInLighBox(index);
 }
-let mediaBox = document.getElementById('medias_photographe')
-for (let i = 0; i < mediaBox.length; i++) {
-    mediaBox[i].addEventListener('click', openLightBox);
-}
+
 // creat lightbox structure 
 function showMediaInLighBox(index) {
     index = index % mediaList.length;
