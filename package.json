@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/imane-R/ImaneElkaddouri_6_27042021/issues"
   },
-  "homepage": "https://github.com/imane-R/ImaneElkaddouri_6_27042021#readme"
+  "homepage": "https://github.com/imane-R/ImaneElkaddouri_6_27042021#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
 }

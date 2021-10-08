@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/8730c06133.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/svg" href="./images/favicon.svg" />
     <link rel="stylesheet" href="build/css/style.css">
+    <script src="./javascript/photographer.js" defer></script>
     <title>FishEye - Nos photographes</title>
 </head>
 
@@ -84,7 +85,7 @@
                     <textarea  tabindex="0" class="text-control focus-modal" name="message" id="message" aria-label="Your message"></textarea>
                     <span id="error_message"></span>
                     <!--send button-->
-                    <button class="btn_submit focus-modal" type="button"  aria-label="Send" tabindex="0" onclick="sentMessage()" >Envoyer</button>
+                    <button class="focus-modal" id="btn_submit" type="button"  aria-label="Send" tabindex="0" >Envoyer</button>
                     </fieldset>
 
                 </form>
@@ -100,7 +101,5 @@
             </div>
         </div>
     </div>
-
-    <script src="./javascript/photographer.js"></script>
 </body>
 </html>
