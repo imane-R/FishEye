@@ -299,7 +299,7 @@ function mediaChoice(media) {
         return (
             '<img class="media" src="' + mediaPath +
             '" alt="' +
-            media.title +
+            media.alttext +
             'role="img"' +
             '" tabindex="0"' +
             'data-media-index="' + (mediaList.length - 1) + '"' +
