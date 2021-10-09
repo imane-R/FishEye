@@ -18,7 +18,7 @@
         position: relative;
         padding: 0;
         .current_media {
-            object-fit: fill;
+            object-fit: cover;
             padding-top: 47px;
             height: 685px;
             width: 52%;
@@ -133,6 +133,8 @@
            .current_media {
              height: 272px;
              width: 102%;
+             margin-top: 16%;
+             padding-top: 0;
            }
            .media-title{
             left: 0%;

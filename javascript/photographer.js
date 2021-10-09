@@ -203,7 +203,7 @@ function createTag(elementTag) {
         result +=
             '<li>' +
             '<span class="sr_only">Tag link</span>' +
-            '<a class="tag_link" href="#">#' +
+            '<a class="tag_link">#' +
             tag +
             '</a>' +
             '</li>';
