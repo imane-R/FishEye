@@ -65,7 +65,7 @@
       {
         "id": 342550,
         "photographerId": 82,
-        "alttext": "mannequin portant une tenue jaune",
+        "altText": "mannequin portant une tenue jaune",
         "title": "Fashion Yellow Beach",
         "image": "Fashion_Yellow_Beach.jpg",
         "tags": ["fashion"],
@@ -76,7 +76,7 @@
       {
         "id": 8520927,
         "photographerId": 82,
-        "alttext": "mannequin portant des vêtements avec une texture jungle",
+        "altText": "mannequin portant des vêtements avec une texture jungle",
         "title": "Fashion Urban Jungle",
         "image": "Fashion_Urban_Jungle.jpg",
         "tags": ["fashion"],
@@ -87,7 +87,7 @@
       {
         "id": 9025895,
         "photographerId": 82,
-        "alttext": "mannequin portant une robe avec une texture Pattern",
+        "altText": "mannequin portant une robe avec une texture Pattern",
         "title": "Fashion Pattern on a Pattern",
         "image": "Fashion_Pattern_on_Pattern.jpg",
         "tags": ["fashion"],
@@ -98,7 +98,7 @@
       {
         "id": 9275938,
         "photographerId": 82,
-        "alttext": "salle de mariage dans un jardin ",
+        "altText": "salle de mariage dans un jardin ",
         "title": "Wedding Gazebo",
         "image": "Event-_WeddingGazebo.jpg",
         "tags": ["events"],
@@ -109,7 +109,7 @@
       {
         "id": 2053494,
         "photographerId": 82,
-        "alttext": "soirée mariage avec beaucoup de lumières",
+        "altText": "soirée mariage avec beaucoup de lumières",
         "title": "Sparkles",
         "image": "Event_Sparklers.jpg",
         "tags": ["events"],
@@ -120,7 +120,7 @@
       {
         "id": 7324238,
         "photographerId": 82,
-        "alttext": "décoration du 18e anniversaire",
+        "altText": "décoration du 18e anniversaire",
         "title": "18th Anniversary",
         "image": "Event_18thAnniversary.jpg",
         "tags": ["events"],
@@ -131,7 +131,7 @@
       {
         "id": 8328953,
         "photographerId": 82,
-        "alttext": "Wooden Horse Sculpture",
+        "altText": "Wooden Horse Sculpture",
         "title": "Wooden Horse Sculpture",
         "video": "Art_Wooden_Horse_Sculpture.mp4",
         "tags": ["art"],
@@ -142,7 +142,7 @@
       {
         "id": 7502053,
         "photographerId": 82,
-        "alttext": "Une peinture d'un homme et un triangle blanc",
+        "altText": "Une peinture d'un homme et un triangle blanc",
         "title": "Triangle Man",
         "image": "Art_Triangle_Man.jpg",
         "tags": ["art"],
@@ -153,7 +153,7 @@
       {
         "id": 8523492,
         "photographerId": 82,
-        "alttext": "Tunnel de graffiti violet",
+        "altText": "Tunnel de graffiti violet",
         "title": "Purple Tunnel",
         "image": "Art_Purple_light.jpg",
         "tags": ["art"],
@@ -164,7 +164,7 @@
       {
         "id": 75902334,
         "photographerId": 82,
-        "alttext": "une peinture des oiseaux",
+        "altText": "une peinture des oiseaux",
         "title": "Art Mine",
         "image": "Art_Mine.jpg",
         "tags": ["art"],
@@ -176,7 +176,7 @@
       {
         "id": 73852953,
         "photographerId": 925,
-        "alttext": "Aviron",
+        "altText": "Aviron",
         "title": "8 Rows",
         "image": "Sport_2000_with_8.jpg",
         "tags": ["sport"],
@@ -187,7 +187,7 @@
       {
         "id": 92758372,
         "photographerId": 925,
-        "alttext": "une femme noire et un homme blanc debout et fermant les yeux",
+        "altText": "une femme noire et un homme blanc debout et fermant les yeux",
         "title": "Fashion Wings",
         "image": "Fashion_Wings.jpg",
         "tags": ["fashion"],
@@ -198,7 +198,7 @@
       {
         "id": 32958383,
         "photographerId": 925,
-        "alttext": "mannequin avec un robe rouge",
+        "altText": "mannequin avec un robe rouge",
         "title": "Melody Red on Stripes",
         "image": "Fashion_Melody_Red_on_Stripes.jpg",
         "tags": ["fashion"],
@@ -209,7 +209,7 @@
       {
         "id": 928587383,
         "photographerId": 925,
-        "alttext": " des collègues dans une salle de réunion",
+        "altText": " des collègues dans une salle de réunion",
         "title": "Venture Conference",
         "image": "Event_VentureConference.jpg",
         "tags": ["events"],
@@ -220,7 +220,7 @@
       {
         "id": 725639493,
         "photographerId": 925,
-        "alttext": "des collègues dans une salle de réunion ouverte",
+        "altText": "des collègues dans une salle de réunion ouverte",
         "title": "Product Pitch",
         "image": "Event_ProductPitch.jpg",
         "tags": ["events"],
@@ -231,7 +231,7 @@
       {
         "id": 23394384,
         "photographerId": 925,
-        "alttext": "Pianiste ",
+        "altText": "Pianiste ",
         "title": "Musical Festival Keyboard",
         "image": "Event_KeyboardCheck.jpg",
         "tags": ["events"],
@@ -242,7 +242,7 @@
       {
         "id": 87367293,
         "photographerId": 925,
-        "alttext": "Chanteuse",
+        "altText": "Chanteuse",
         "title": "Musical Festival Singer",
         "image": "Event_Emcee.jpg",
         "tags": ["events"],
@@ -253,7 +253,7 @@
       {
         "id": 593834784,
         "photographerId": 925,
-        "alttext": "Le cerf élaphe",
+        "altText": "Le cerf élaphe",
         "title": "Animal Majesty",
         "image": "Animals_Majesty.jpg",
         "tags": ["animals"],
@@ -264,7 +264,7 @@
       {
         "id": 83958935,
         "photographerId": 925,
-        "alttext": "chiot jouant au coucher du soleil",
+        "altText": "chiot jouant au coucher du soleil",
         "title": "Cute Puppy on Sunset",
         "video": "Animals_Puppiness.mp4",
         "tags": ["animals"],
@@ -276,7 +276,7 @@
       {
         "id": 394583434,
         "photographerId": 527,
-        "alttext": "Rock Mountains",
+        "altText": "Rock Mountains",
         "title": "Rock Mountains",
         "video": "Travel_Rock_Mountains.mp4",
         "tags": ["travel"],
@@ -287,7 +287,7 @@
       {
         "id": 343423425,
         "photographerId": 527,
-        "alttext": "lac chaud",
+        "altText": "lac chaud",
         "title": "Outdoor Baths",
         "image": "Travel_Outdoor_Baths.jpg",
         "tags": ["travel"],
@@ -298,7 +298,7 @@
       {
         "id": 73434243,
         "photographerId": 527,
-        "alttext": "longue route goudronnée",
+        "altText": "longue route goudronnée",
         "title": "Road into the Hill",
         "image": "Travel_Road_into_Hill.jpg",
         "tags": ["travel"],
@@ -309,7 +309,7 @@
       {
         "id": 23425523,
         "photographerId": 527,
-        "alttext": "un petit pont dans une forêt",
+        "altText": "un petit pont dans une forêt",
         "title": "Bridge into the Forest",
         "image": "Travel_Bridge_into_Forest.jpg",
         "tags": ["travel"],
@@ -320,7 +320,7 @@
       {
         "id": 23134513,
         "photographerId": 527,
-        "alttext": "Petit bateau dans la vallée",
+        "altText": "Petit bateau dans la vallée",
         "title": "Boat Wonderer",
         "image": "Travel_Boat_Wanderer.jpg",
         "tags": ["travel"],
@@ -331,7 +331,7 @@
       {
         "id": 92352352,
         "photographerId": 527,
-        "alttext": "un visage d'une femme avec des cheveux rouge",
+        "altText": "un visage d'une femme avec des cheveux rouge",
         "title": "Portrait Sunkiss",
         "image": "Portrait_Sunkissed.jpg",
         "tags": ["portrait"],
@@ -342,7 +342,7 @@
       {
         "id": 34513453,
         "photographerId": 527,
-        "alttext": "photo noire et blanc d'un homme noir",
+        "altText": "photo noire et blanc d'un homme noir",
         "title": "Shaw Potrait",
         "image": "Portrait_Shaw.jpg",
         "tags": ["portait"],
@@ -353,7 +353,7 @@
       {
         "id": 23523533,
         "photographerId": 527,
-        "alttext": "une femme noire avec des cheveux blanc",
+        "altText": "une femme noire avec des cheveux blanc",
         "title": "Alexandra",
         "image": "Portrait_Alexandra.jpg",
         "tags": ["portait"],
@@ -364,7 +364,7 @@
       {
         "id": 525834234,
         "photographerId": 527,
-        "alttext": "un vieil homme qui fume",
+        "altText": "un vieil homme qui fume",
         "title": "Afternoon Break",
         "image": "Portrait_AfternoonBreak.jpg",
         "tags": ["portait"],
@@ -376,7 +376,7 @@
       {
         "id": 623534343,
         "photographerId": 243,
-        "alttext": "montagnes vertes",
+        "altText": "montagnes vertes",
         "title": "Lonesome",
         "image": "Travel_Lonesome.jpg",
         "tags": ["travel"],
@@ -387,7 +387,7 @@
       {
         "id": 625025343,
         "photographerId": 243,
-        "alttext": "des maisons dans une montagne",
+        "altText": "des maisons dans une montagne",
         "title": "Hillside Color",
         "image": "Travel_HillsideColor.jpg",
         "tags": ["travel"],
@@ -398,7 +398,7 @@
       {
         "id": 2525345343,
         "photographerId": 243,
-        "alttext": "un petit enfant sa main sur ses joues",
+        "altText": "un petit enfant sa main sur ses joues",
         "title": "Wednesday Potrait",
         "image": "Portrait_Wednesday.jpg",
         "tags": ["portait"],
@@ -409,7 +409,7 @@
       {
         "id": 2523434634,
         "photographerId": 243,
-        "alttext": "une femme avec des lunette",
+        "altText": "une femme avec des lunette",
         "title": "Nora Portrait",
         "image": "Portrait_Nora.jpg",
         "tags": ["portait"],
@@ -420,7 +420,7 @@
       {
         "id": 398847109,
         "photographerId": 243,
-        "alttext": "photo noir et blanc pour une femme",
+        "altText": "photo noir et blanc pour une femme",
         "title": "Raw Black Portrait",
         "image": "Portrait_Background.jpg",
         "tags": ["portait"],
@@ -431,7 +431,7 @@
       {
         "id": 2534342,
         "photographerId": 243,
-        "alttext": "table décoration pour une fête",
+        "altText": "table décoration pour une fête",
         "title": "Seaside Wedding",
         "image": "Event_SeasideWedding.jpg",
         "tags": ["events"],
@@ -442,7 +442,7 @@
       {
         "id": 65235234,
         "photographerId": 243,
-        "alttext": "Jeunes mariés sous un arbre",
+        "altText": "Jeunes mariés sous un arbre",
         "title": "Boulder Wedding",
         "image": "Event_PintoWedding.jpg",
         "tags": ["events"],
@@ -453,7 +453,7 @@
       {
         "id": 23523434,
         "photographerId": 243,
-        "alttext": "jeunes mariés dansent",
+        "altText": "jeunes mariés dansent",
         "title": "Benevides Wedding",
         "image": "Event_BenevidesWedding.jpg",
         "tags": ["events"],
@@ -464,7 +464,7 @@
       {
         "id": 5234343,
         "photographerId": 243,
-        "alttext": "beaucoup de chevaux marchent",
+        "altText": "beaucoup de chevaux marchent",
         "title": "Wild Horses in the Mountains",
         "video": "Animals_Wild_Horses_in_the_mountains.mp4",
         "tags": ["animals"],
@@ -475,7 +475,7 @@
       {
         "id": 95234343,
         "photographerId": 243,
-        "alttext": "un oiseau coloré",
+        "altText": "un oiseau coloré",
         "title": "Rainbow Bird",
         "image": "Animals_Rainbow.jpg",
         "tags": ["animals"],
@@ -487,7 +487,7 @@
       {
         "id": 52343416,
         "photographerId": 195,
-        "alttext": "architecture japonaise",
+        "altText": "architecture japonaise",
         "title": "Japanese Tower, Kyoto",
         "image": "Travel_Tower.jpg",
         "tags": ["travel"],
@@ -498,7 +498,7 @@
       {
         "id": 2523434,
         "photographerId": 195,
-        "alttext": "Une vallée au milieu des maisons",
+        "altText": "Une vallée au milieu des maisons",
         "title": "Senset on Canals, Venice",
         "image": "Travel_SunsetonCanals.jpg",
         "tags": ["travel"],
@@ -509,7 +509,7 @@
       {
         "id": 95293534,
         "photographerId": 195,
-        "alttext": "Lac dans les montagnes",
+        "altText": "Lac dans les montagnes",
         "title": "Mountain and Lake",
         "image": "Travel_OpenMountain.jpg",
         "tags": ["travel"],
@@ -520,7 +520,7 @@
       {
         "id": 356234343,
         "photographerId": 195,
-        "alttext": "Vélo de ville et escalier",
+        "altText": "Vélo de ville et escalier",
         "title": "City Bike and Stair, Paris",
         "image": "Travel_Bike_and_Stair.jpg",
         "tags": ["travel"],
@@ -531,7 +531,7 @@
       {
         "id": 235234343,
         "photographerId": 195,
-        "alttext": "immense porte de l'architecture indienne",
+        "altText": "immense porte de l'architecture indienne",
         "title": "Adventure Door, India",
         "image": "Travel_Adventure_Door.jpg",
         "tags": ["travel"],
@@ -542,7 +542,7 @@
       {
         "id": 6234234343,
         "photographerId": 195,
-        "alttext": "temple juif",
+        "altText": "temple juif",
         "title": "Contrast, St Petersburg",
         "image": "Architecture_Contrast.jpg",
         "tags": ["architecture"],
@@ -553,7 +553,7 @@
       {
         "id": 6525666253,
         "photographerId": 195,
-        "alttext": "maisons dans une montagne",
+        "altText": "maisons dans une montagne",
         "title": "On a Hill, Tibet",
         "image": "Architecture_On_a_hill.jpg",
         "tags": ["architecture"],
@@ -564,7 +564,7 @@
       {
         "id": 98252523433,
         "photographerId": 195,
-        "alttext": "la tour de Pise",
+        "altText": "la tour de Pise",
         "title": "Leaning Tower, Pisa",
         "image": "Architecture_Dome.jpg",
         "tags": ["architecture"],
@@ -575,7 +575,7 @@
       {
         "id": 9259398453,
         "photographerId": 195,
-        "alttext": "Autoroutes circulaires, Buenos Aires",
+        "altText": "Autoroutes circulaires, Buenos Aires",
         "title": "Circle Highways, Buenos Aires",
         "video": "Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4",
         "tags": ["architecture"],
@@ -586,7 +586,7 @@
       {
         "id": 3523523534,
         "photographerId": 195,
-        "alttext": "Immeuble architecture haussmannienne",
+        "altText": "Immeuble architecture haussmannienne",
         "title": "Corner Building and Blue Sky",
         "image": "Architecture_Corner_Room.jpg",
         "tags": ["architecture"],
@@ -598,7 +598,7 @@
       {
         "id": 952343423,
         "photographerId": 930,
-        "alttext": "Femme faisant de la gymnastique",
+        "altText": "Femme faisant de la gymnastique",
         "title": "Tricks in the Air",
         "video": "Sport_Tricks_in_the_air.mp4",
         "tags": ["sport"],
@@ -609,7 +609,7 @@
       {
         "id": 235234343,
         "photographerId": 930,
-        "alttext": "Escaladeur",
+        "altText": "Escaladeur",
         "title": "Climber",
         "image": "Sport_Next_Hold.jpg",
         "tags": ["sport"],
@@ -620,7 +620,7 @@
       {
         "id": 235343222,
         "photographerId": 930,
-        "alttext": "un homme surf",
+        "altText": "un homme surf",
         "title": "Surfer",
         "image": "sport_water_tunnel.jpg",
         "tags": ["sport"],
@@ -631,7 +631,7 @@
       {
         "id": 7775342343,
         "photographerId": 930,
-        "alttext": "un homme skieur",
+        "altText": "un homme skieur",
         "title": "Skier",
         "image": "Sport_Sky_Cross.jpg",
         "tags": ["sport"],
@@ -642,7 +642,7 @@
       {
         "id": 9253445784,
         "photographerId": 930,
-        "alttext": "athletes running",
+        "altText": "athletes running",
         "title": "Race End",
         "image": "Sport_Race_End.jpg",
         "tags": ["sport"],
@@ -653,7 +653,7 @@
       {
         "id": 22299394,
         "photographerId": 930,
-        "alttext": "jeunes garçons jouant skie",
+        "altText": "jeunes garçons jouant skie",
         "title": "Jump!",
         "image": "Sport_Jump.jpg",
         "tags": ["sport"],
@@ -664,7 +664,7 @@
       {
         "id": 3452342633,
         "photographerId": 930,
-        "alttext": "bâtiment blanc",
+        "altText": "bâtiment blanc",
         "title": "White Light",
         "image": "Architecture_White_Light.jpg",
         "tags": ["architecture"],
@@ -675,7 +675,7 @@
       {
         "id": 939234243,
         "photographerId": 930,
-        "alttext": "L'eau sur bâtiment moderne",
+        "altText": "L'eau sur bâtiment moderne",
         "title": "Water on Modern Building",
         "image": "Architecture_Water_on_Modern.jpg",
         "tags": ["architecture"],
@@ -686,7 +686,7 @@
       {
         "id": 222959233,
         "photographerId": 930,
-        "alttext": "bâtiment noir",
+        "altText": "bâtiment noir",
         "title": "Horseshoe",
         "image": "Architecture_Horseshoe.jpg",
         "tags": ["architecture"],
@@ -697,7 +697,7 @@
       {
         "id": 965933434,
         "photographerId": 930,
-        "alttext": "bâtiment en verre",
+        "altText": "bâtiment en verre",
         "title": "Cross Bar",
         "image": "Architecture_Cross_Bar.jpg",
         "tags": ["architecture"],
@@ -708,7 +708,7 @@
       {
         "id": 777723343,
         "photographerId": 930,
-        "alttext": "construction de courbes connectées",
+        "altText": "construction de courbes connectées",
         "title": "Connected Curves",
         "image": "Architecture_Connected_Curves.jpg",
         "tags": ["architecture"],

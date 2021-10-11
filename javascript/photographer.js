@@ -1,7 +1,7 @@
-let mediaList = [];
 let fullMediaList = [];
 let totalLikes = 0;
 let currentMediaIndex;
+let factory = new Factory();
 const $mainPhotographers = document.getElementById("main_photgraphers")
 const $contactMeModal = document.getElementById("contact_me_modal");
 const $lightboxModal = document.getElementById("lightbox_modal");
@@ -63,28 +63,27 @@ function fetchAndShowPhotographerMedias() {
  */
 function showMediasByAttribute(attribute) {
     document.getElementById("medias_photographe").innerHTML = '';
-    mediaList = [];
 
     if (!attribute) {
-        fullMediaList.forEach((media) => {
-            creatMedias(media);
+        fullMediaList.forEach((media, index) => {
+            creatMedias(media, index);
         });
     }
 
     if (attribute === "likes") {
-        fullMediaList.sort(likesComparator).forEach((media) => {
-            creatMedias(media);
+        fullMediaList.sort(likesComparator).forEach((media, index) => {
+            creatMedias(media, index);
         });
     }
 
     if (attribute === "date") {
-        fullMediaList.sort(dateComparator).forEach((media) => {
-            creatMedias(media);
+        fullMediaList.sort(dateComparator).forEach((media, index) => {
+            creatMedias(media, index);
         });
     }
     if (attribute === "title") {
-        fullMediaList.sort(titleComparator).forEach((media) => {
-            creatMedias(media);
+        fullMediaList.sort(titleComparator).forEach((media, index) => {
+            creatMedias(media, index);
         });
     }
 
@@ -129,8 +128,6 @@ except the current select box:*/
         }
     }
 }
-
-document.addEventListener("click", closeAllSelect);
 
 function initCustomSelect() {
     /**
@@ -244,12 +241,13 @@ function createUIPhotographerBanner(photographer) {
 /**
  *  create media with likes and their names
  */
-function creatMedias(media) {
+function creatMedias(media, index) {
 
     let media_photographe = document.createElement('div');
     media_photographe.classList.add('media_photographe');
+    media_photographe.setAttribute('data-media-index', index);
     media_photographe.innerHTML =
-        mediaChoice(media) +
+        factory.createMedia(media, 'thumbnail').html +
         '<div class="media_texte">' +
         '<p class="media_title">' +
         media.title +
@@ -288,44 +286,6 @@ function showPhotographerPrice(photographer) {
     PricePerDay.innerHTML = '<p class = "price-per-day">' +
         photographer.price + "€ / jour" + '</p>'
 }
-function mediaChoice(media) {
-    let mediaPath
-    if (media.image) {
-        mediaPath = './images/SamplePhotos/' + media.photographerId + '/' + media.image
-        mediaList.push({
-            type: 'image',
-            src: mediaPath,
-            name: media.title,
-        });
-        return (
-            '<img class="media" src="' + mediaPath +
-            '" alt="' +
-            media.alttext +
-            'role="img"' +
-            '" tabindex="0"' +
-            'data-media-index="' + (mediaList.length - 1) + '"' +
-            '>'
-        )
-    } else if (media.video) {
-        mediaPath = './images/SamplePhotos/' + media.photographerId + '/' + media.video;
-        mediaList.push({
-            type: 'video',
-            src: mediaPath,
-            name: media.title,
-        });
-        return (
-            '<video class="media" tabindex="0"'+ 
-            'data-media-index="' + (mediaList.length - 1) + '"' +
-            '>' +
-            '<source src="' + mediaPath +
-            '" alt="' +
-            media.alttext +
-            '" type = "video/mp4"' +
-            '>' +
-            '</video>'
-        )
-    }
-}
 
 //injection de la bannière total deslikes
 
@@ -360,8 +320,6 @@ function openContactMe() {
     $mainPhotographers.style.display = "none";
     $contactMeModal.style.display = "block"
 }
-document.getElementById('contactButtonDesktop').addEventListener('click', openContactMe);
-document.getElementById('contactButtonPhone').addEventListener('click', openContactMe);
 // close contactMe function
 function closeContactMe() {
     $contactMeModal.setAttribute("aria-hidden", "true")
@@ -369,7 +327,6 @@ function closeContactMe() {
     $mainPhotographers.style.display = "block";
     $contactMeModal.style.display = "none";
 }
-document.getElementById('closeOnlyContactMe').addEventListener('click', closeContactMe);
 // rest error message
 function restErrorMessage() {
     errorFirstName.textContent = "";
@@ -415,49 +372,36 @@ function sentMessage() {
     }
     return isValid;
 }
-document.getElementById('btn_submit').addEventListener('click', sentMessage);
 
 
 // lightBox open function 
 function openLightBox(event) {
-    var index = event.currentTarget.getAttribute('data-media-index');
+    var index = event.currentTarget.parentNode.getAttribute('data-media-index');
     openModal($lightboxModal);
     showMediaInLighBox(index);
 }
 
 // creat lightbox structure 
 function showMediaInLighBox(index) {
-    index = index % mediaList.length;
-    let currentMedia = mediaList.at(index);
+    index = index % fullMediaList.length;
+    let currentMedia = fullMediaList.at(index);
     currentMediaIndex = index;
     let injectMedia = $lightboxModal.getElementsByClassName("modal_body")[0];
     injectMedia.innerHTML = '<ul class = "img_title_lightbox ">' +
-        '<li>' + choiceMediaLightBox(currentMedia) + '</li>' +
-        '<li class="media-title">' + currentMedia.name + '</li>' +
+        '<li>' + factory.createMedia(currentMedia, 'lightbox').html + '</li>' +
+        '<li class="media-title">' + currentMedia.title + '</li>' +
         '</ul>' +
         '<span id="close-light-box" class="close_modal close_modal_media"  aria-label="Close contact form">' +
         '<i class="fas fa-times" title="close modal"></i>' +
         '</span>' +
         '<i id="next" class="fas fa-chevron-right"  title= "go to next media">' + '</i>' +
         '<i  id="previous" class="fas fa-chevron-left" title= "go to the previous media">' + '</i>';
-    document.getElementById('close-light-box').addEventListener('click', closeLightBox);
-    document.getElementById('next').addEventListener('click', nextMedia);
-    document.getElementById('previous').addEventListener('click', previousMedia);
+
+        document.getElementById('close-light-box').addEventListener('click', closeLightBox);
+        document.getElementById('next').addEventListener('click', nextMedia);
+        document.getElementById('previous').addEventListener('click', previousMedia);
 }
-// create image or video for the  lightbox
-function choiceMediaLightBox(media) {
-    if (media.type == "image") {
-        return ('<img class="current_media" src="' + media.src + '" role="img" >'
-        );
-    } else if (media.type == "video") {
-        return ('<video class="current_media video_current_media" controls>' +
-            '<source src="' + media.src +
-            '" type = "video/mp4"' +
-            '>' +
-            '</video>'
-        );
-    }
-}
+
 // functions to navigate tn the lightbox
 function previousMedia() {
     showMediaInLighBox(currentMediaIndex - 1);
@@ -470,9 +414,21 @@ function closeLightBox() {
     closeModal($lightboxModal);
 }
 
+/********EVENTS********/
+
+// contact me modal events
+document.getElementById('contactButtonDesktop').addEventListener('click', openContactMe);
+document.getElementById('contactButtonPhone').addEventListener('click', openContactMe);
+document.getElementById('closeOnlyContactMe').addEventListener('click', closeContactMe);
+document.getElementById('btn_submit').addEventListener('click', sentMessage);
+
+//close custom select when clicking outside
+document.addEventListener("click", closeAllSelect);
 
 
-// Close modal when escape key is pressed
+// close modal when escape key is pressed
+// navigate between medias in lightbox
+// fire click event on active element (accessiblity)
 document.addEventListener('keydown', e => {
     const keyCode = e.keyCode ? e.keyCode : e.which
     if (keyCode === 27) {
@@ -496,9 +452,5 @@ document.addEventListener('keydown', e => {
     }
 
 });
-/*let closeBox = document.getElementById('close-light-box');
-closeBox.addEventListener("click", e => {
-    ($lightboxModal.getAttribute('aria-hidden') == 'false')
-        closeModal($lightboxModal);
-});*/
+
 
