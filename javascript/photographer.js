@@ -2,6 +2,7 @@ let fullMediaList = [];
 let totalLikes = 0;
 let currentMediaIndex;
 let factory = new Factory();
+
 const $mainPhotographers = document.getElementById("main_photgraphers")
 const $contactMeModal = document.getElementById("contact_me_modal");
 const $lightboxModal = document.getElementById("lightbox_modal");
@@ -13,9 +14,16 @@ const email = document.getElementById("email");
 const errorEmail = document.getElementById("error_email");
 const message = document.getElementById("message");
 const errorMessage = document.getElementById("error_message");
+
 //Regex
 const regexLettres = /^[a-zA-Z-\s]+$/;
 const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+// KeyBoard codes
+const KEY_RETURN = 13;
+const KEY_ESCAPE = 27;
+const KEY_LEFT = 37;
+const KEY_RIGHT = 39;
 
 initCustomSelect();
 fetchAndShowPhotographerMedias();
@@ -40,7 +48,6 @@ function fetchAndShowPhotographerMedias() {
                         showPhotographerPrice(photographer);
                         let modalTitle = document.getElementById('modal_title');
                         modalTitle.innerHTML = "Contactez-moi" + " " + photographer.name;
-                        
                     }
                 });
             if (data.media != undefined)
@@ -376,7 +383,7 @@ function sentMessage() {
 
 // lightBox open function 
 function openLightBox(event) {
-    var index = event.currentTarget.parentNode.getAttribute('data-media-index');
+    var index = parseInt(event.currentTarget.parentNode.getAttribute('data-media-index'));
     openModal($lightboxModal);
     showMediaInLighBox(index);
 }
@@ -386,20 +393,9 @@ function showMediaInLighBox(index) {
     index = index % fullMediaList.length;
     let currentMedia = fullMediaList.at(index);
     currentMediaIndex = index;
-    let injectMedia = $lightboxModal.getElementsByClassName("modal_body")[0];
-    injectMedia.innerHTML = '<ul class = "img_title_lightbox ">' +
-        '<li>' + factory.createMedia(currentMedia, 'lightbox').html + '</li>' +
-        '<li class="media-title">' + currentMedia.title + '</li>' +
-        '</ul>' +
-        '<span id="close-light-box" class="close_modal close_modal_media"  aria-label="Close contact form">' +
-        '<i class="fas fa-times" title="close modal"></i>' +
-        '</span>' +
-        '<i id="next" class="fas fa-chevron-right"  title= "go to next media">' + '</i>' +
-        '<i  id="previous" class="fas fa-chevron-left" title= "go to the previous media">' + '</i>';
-
-        document.getElementById('close-light-box').addEventListener('click', closeLightBox);
-        document.getElementById('next').addEventListener('click', nextMedia);
-        document.getElementById('previous').addEventListener('click', previousMedia);
+    let injectMedia = $lightboxModal.getElementsByClassName("img_title_lightbox")[0];
+    injectMedia.innerHTML = '<li>' + factory.createMedia(currentMedia, 'lightbox').html + '</li>' +
+        '<li class="media-title">' + currentMedia.title + '</li>';
 }
 
 // functions to navigate tn the lightbox
@@ -422,6 +418,11 @@ document.getElementById('contactButtonPhone').addEventListener('click', openCont
 document.getElementById('closeOnlyContactMe').addEventListener('click', closeContactMe);
 document.getElementById('btn_submit').addEventListener('click', sentMessage);
 
+// lightbox events
+document.getElementById('close-light-box').addEventListener('click', closeLightBox);
+document.getElementById('next').addEventListener('click', nextMedia);
+document.getElementById('previous').addEventListener('click', previousMedia);
+
 //close custom select when clicking outside
 document.addEventListener("click", closeAllSelect);
 
@@ -431,7 +432,8 @@ document.addEventListener("click", closeAllSelect);
 // fire click event on active element (accessiblity)
 document.addEventListener('keydown', e => {
     const keyCode = e.keyCode ? e.keyCode : e.which
-    if (keyCode === 27) {
+
+    if (keyCode === KEY_ESCAPE) {
         if ($lightboxModal.getAttribute('aria-hidden') == 'false') {
             closeModal($lightboxModal);
         }
@@ -440,13 +442,13 @@ document.addEventListener('keydown', e => {
         }
     }
     if ($lightboxModal.getAttribute('aria-hidden') == 'false') {
-        if (keyCode === 39) {
+        if (keyCode === KEY_RIGHT) {
             nextMedia();
-        } else if (keyCode === 37) {
+        } else if (keyCode === KEY_LEFT) {
             previousMedia();
         }
     } else {
-        if (keyCode === 13) {
+        if (keyCode === KEY_RETURN) {
             document.activeElement.click()
         }
     }

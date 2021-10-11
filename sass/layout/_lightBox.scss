@@ -38,7 +38,8 @@
         right: 19%;
         font-size: 50px;
         font-weight: lighter;
-        color: $color_primary;    
+        color: $color_primary; 
+        cursor: pointer;   
     }
     .fa-chevron-right{
         position: absolute;
@@ -46,6 +47,7 @@
         right: 19%;
         color: $color_primary;
         font-size: 50px;
+        cursor: pointer;
     }
     .fa-chevron-left{
         position: absolute;
@@ -53,6 +55,7 @@
         left: 19%;
         color: $color_primary;
         font-size: 50px;  
+        cursor: pointer;
     }
 
 }
