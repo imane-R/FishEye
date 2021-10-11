@@ -40,6 +40,7 @@ function fetchAndShowPhotographerMedias() {
                         showPhotographerPrice(photographer);
                         let modalTitle = document.getElementById('modal_title');
                         modalTitle.innerHTML = "Contactez-moi" + " " + photographer.name;
+                        
                     }
                 });
             if (data.media != undefined)
@@ -317,6 +318,8 @@ function mediaChoice(media) {
             'data-media-index="' + (mediaList.length - 1) + '"' +
             '>' +
             '<source src="' + mediaPath +
+            '" alt="' +
+            media.alttext +
             '" type = "video/mp4"' +
             '>' +
             '</video>'
@@ -335,20 +338,38 @@ function showTotalLikes() {
         '</i>';
 }
 
-// open modal function
+// open lightBox function
 function openModal(modal) {
     modal.setAttribute("aria-hidden", "false")
     $mainPhotographers.setAttribute('aria-hidden', 'true')
     $mainPhotographers.style.display = "none";
     modal.style.display = "block"
 }
-// close modal function
+// close lightBox  function
 function closeModal(modal) {
     modal.setAttribute("aria-hidden", "true")
     $mainPhotographers.setAttribute('aria-hidden', 'false')
     $mainPhotographers.style.display = "block";
     modal.style.display = "none";
 }
+
+// open contactMe function
+function openContactMe() {
+    $contactMeModal.setAttribute("aria-hidden", "false")
+    $mainPhotographers.setAttribute('aria-hidden', 'true')
+    $mainPhotographers.style.display = "none";
+    $contactMeModal.style.display = "block"
+}
+document.getElementById('contactButtonDesktop').addEventListener('click', openContactMe);
+document.getElementById('contactButtonPhone').addEventListener('click', openContactMe);
+// close contactMe function
+function closeContactMe() {
+    $contactMeModal.setAttribute("aria-hidden", "true")
+    $mainPhotographers.setAttribute('aria-hidden', 'false')
+    $mainPhotographers.style.display = "block";
+    $contactMeModal.style.display = "none";
+}
+document.getElementById('closeOnlyContactMe').addEventListener('click', closeContactMe);
 // rest error message
 function restErrorMessage() {
     errorFirstName.textContent = "";
@@ -409,7 +430,6 @@ function showMediaInLighBox(index) {
     index = index % mediaList.length;
     let currentMedia = mediaList.at(index);
     currentMediaIndex = index;
-    console.log(currentMedia);
     let injectMedia = $lightboxModal.getElementsByClassName("modal_body")[0];
     injectMedia.innerHTML = '<ul class = "img_title_lightbox ">' +
         '<li>' + choiceMediaLightBox(currentMedia) + '</li>' +

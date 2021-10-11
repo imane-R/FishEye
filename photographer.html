@@ -19,9 +19,9 @@
         </a>
     </header>
     <main id="main_photgraphers" aria-hidden="false">
-        <button type="button" id="contactButtonPhone" tabindex="0" onclick="openModal($contactMeModal)">Contactez-moi
+        <button type="button" id="contactButtonPhone" tabindex="0">Contactez-moi
         </button>
-        <button type="button" id="contactButtonDesktop" onclick="openModal($contactMeModal)">Contactez-moi
+        <button type="button" id="contactButtonDesktop">Contactez-moi
         </button>
     
         <section id="banner_photographe_container">
@@ -57,7 +57,7 @@
         <div class="content_modal">
             <div class="modal_body">
                 <div class="modal_header">
-                    <span class="close_modal"  onclick="closeModal($contactMeModal)"  aria-label="Close contact form" >
+                    <span id = "closeOnlyContactMe" class="close_modal" aria-label="Close contact form" >
                         <em class="fas fa-times" tabindex="0"></em>
                     </span>
                 </div>
