@@ -136,8 +136,6 @@ except the current select box:*/
     }
 }
 
-document.addEventListener("click", closeAllSelect);
-
 function initCustomSelect() {
     /**
  *  look for any elements with the class "dropdown"
@@ -149,8 +147,10 @@ function initCustomSelect() {
         /*for each element, create a new DIV that will act as the selected item:*/
         selectedItem = document.createElement('div');
         selectedItem.setAttribute('class', 'select-selected');
+        selectedItem.tabIndex = "0";
         selectedItem.innerHTML = selElement.options[selElement.selectedIndex].innerHTML;
         dropDownSelect[i].appendChild(selectedItem);
+
         /*for each element, create a new DIV that will contain the option list:*/
         optionList = document.createElement('div');
         optionList.setAttribute('class', 'select-items select-hide');
@@ -159,6 +159,7 @@ function initCustomSelect() {
             optionItem = document.createElement('div');
             optionItem.innerHTML = selElement.options[i].innerHTML;
             optionItem.setAttribute('data-value', selElement.options[i].getAttribute('value'));
+            optionItem.tabIndex = "0";
             if (i === 0) {
                 optionItem.classList.add('same-as-selected');
             }
