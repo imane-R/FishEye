@@ -5,7 +5,7 @@ fetchAndShowPhotographers();
 window.addEventListener('scroll', scrollEvent);
 
 /**
- * bind click event on all tag link
+ * bind click event on all tag
  */
 function bindTagLinkClickEvent() {
     let tagLinkElement = document.getElementsByClassName("tag_link");
@@ -62,8 +62,8 @@ function getHtmlLiTags(tags) {
     tags.forEach((tag) => {
         result +=
             '<li>' +
-            '<span class="sr_only">Tag link</span>' +
-            '<a class="tag_link" href="#">#' +
+            '<span class="sr_only">tag</span>' +
+            '<a class="tag_link">#' +
             tag +
             '</a>' +
             '</li>';
@@ -88,7 +88,7 @@ function createUIPhotographerContainer(photographer) {
         '<img class="photographe_portrait" role="link and image" src="./images/SamplePhotos/PhotographersIDPhotos/' +
         photographer.portrait +
         '"alt="' +
-        photographer.name +
+        photographer.altText +
         '">' +
         '<h2 class="photographeName">' +
         photographer.name +

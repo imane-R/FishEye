@@ -110,7 +110,7 @@ function titleComparator(a, b) {
 /**
  *  On change dropDown, call showMediasByAttribute function
  */
-function changeDropDownEvent() {
+ function changeDropDownEvent() {
     let selectedChoice = document.getElementById("trier").getElementsByClassName('same-as-selected')[0].getAttribute('data-value');
     showMediasByAttribute(selectedChoice);
 }
@@ -136,36 +136,33 @@ except the current select box:*/
     }
 }
 
+document.addEventListener("click", closeAllSelect);
+
 function initCustomSelect() {
     /**
  *  look for any elements with the class "dropdown"
  */
-    let dropDownSelect, selElement, selectedItem, optionList;
+    let dropDownSelect, selElement, selectedItem, optionList, newSelectBox;
     dropDownSelect = document.getElementsByClassName('dropdown');
     for (let i = 0; i < dropDownSelect.length; i++) {
         selElement = dropDownSelect[i].getElementsByTagName('select')[0];
         /*for each element, create a new DIV that will act as the selected item:*/
         selectedItem = document.createElement('div');
         selectedItem.setAttribute('class', 'select-selected');
-
-        selectedItem.tabIndex = "0";
         selectedItem.innerHTML = selElement.options[selElement.selectedIndex].innerHTML;
         dropDownSelect[i].appendChild(selectedItem);
         /*for each element, create a new DIV that will contain the option list:*/
         optionList = document.createElement('div');
         optionList.setAttribute('class', 'select-items select-hide');
-
         for (let i = 0; i < selElement.length; i++) {
             /*for each option in the original select element,create a new DIV that will act as an option item:*/
-            let optionItem = document.createElement('div');
+            optionItem = document.createElement('div');
             optionItem.innerHTML = selElement.options[i].innerHTML;
             optionItem.setAttribute('data-value', selElement.options[i].getAttribute('value'));
-            optionItem.setAttribute('role', 'option');
-            optionItem.tabIndex = "0";
             if (i === 0) {
                 optionItem.classList.add('same-as-selected');
             }
-            optionItem.addEventListener("click", function () {
+            optionItem.addEventListener("click", function (e) {
                 /*when an item is clicked, update the original select box,
                 and the selected item:*/
                 let newSelectBox, previousElement, sameAsSelected;
@@ -182,6 +179,7 @@ function initCustomSelect() {
                         this.setAttribute("class", "same-as-selected");
                         break;
                     }
+
                 }
                 previousElement.click();
                 changeDropDownEvent();
@@ -207,7 +205,7 @@ function createTag(elementTag) {
     elementTag.forEach((tag) => {
         result +=
             '<li>' +
-            '<span class="sr_only">Tag link</span>' +
+            '<span class="sr_only">Tag</span>' +
             '<a class="tag_link">#' +
             tag +
             '</a>' +
@@ -241,7 +239,7 @@ function createUIPhotographerBanner(photographer) {
         '<img class="photographe_portrait_banner" src="./images/SamplePhotos/PhotographersIDPhotos/' +
         photographer.portrait +
         '"alt="' +
-        photographer.alt +
+        photographer.altText +
         '">'
 }
 
@@ -299,7 +297,7 @@ function showPhotographerPrice(photographer) {
 function showTotalLikes() {
     let total_likes = document.getElementById('total-likes');
     total_likes.innerHTML =
-        '<p class ="total_likes">' + totalLikes +
+        '<p class ="total_likes" role = "toale likes">' + totalLikes +
         '</p>' +
         '<i class="fas fa-heart total">' +
         '</i>';
