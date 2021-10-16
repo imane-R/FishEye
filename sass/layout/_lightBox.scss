@@ -9,6 +9,10 @@
     width: 100%;
     overflow: auto;
     background-color: #fff;
+    button{
+        border: none;
+        background: none;
+    }
     .modal_body {
         text-align: center;
     }
@@ -41,21 +45,23 @@
         color: $color_primary; 
         cursor: pointer;   
     }
-    .fa-chevron-right{
+    .button-right{
         position: absolute;
         top: 50%;
         right: 19%;
+    }
+    .fa-chevron-right{
         color: $color_primary;
         font-size: 50px;
-        cursor: pointer;
     }
-    .fa-chevron-left{
+    .button-left{
         position: absolute;
         top: 50%;
         left: 19%;
+    }
+    .fa-chevron-left{
         color: $color_primary;
         font-size: 50px;  
-        cursor: pointer;
     }
 
 }

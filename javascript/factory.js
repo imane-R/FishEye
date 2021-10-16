@@ -23,7 +23,11 @@ let Factory = function () {
 
 let ImageLightBox = function (mediaData) {
     let mediaPath = ABSOLUTE_MEDIA_PATH + mediaData.photographerId + '/' + mediaData.image;
-    this.html = '<img class="current_media" src="' + mediaPath + '" role="img" >';
+    this.html = '<img class="current_media" src="' + mediaPath + 
+    '" role="img"'+
+    '" alt="' +
+    mediaData.altText +
+    '>"';
 }
 
 let ImageThumbnail = function (mediaData) {
@@ -40,6 +44,8 @@ let VideoLightBox = function (mediaData) {
     let mediaPath = ABSOLUTE_MEDIA_PATH + mediaData.photographerId + '/' + mediaData.video;
     this.html = '<video class="current_media video_current_media" controls>' +
         '<source src="' + mediaPath +
+        '" alt="' +
+        mediaData.altText +
         '" type = "video/mp4"' +
         '>' +
         '</video>';

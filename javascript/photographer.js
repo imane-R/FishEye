@@ -260,8 +260,7 @@ function creatMedias(media, index) {
         '</p>' +
         '<div class="media_heart" aria-label="likes">' +
         '<p class="nb_likes">' +
-        media.likes +
-        '</p>' +
+        media.likes +'</p>' +
         '<i class="fas fa-heart" tabindex="0" title= "add like"></i>' +
         '</div>' +
         '</div>';
@@ -393,8 +392,10 @@ function showMediaInLighBox(index) {
     let currentMedia = fullMediaList.at(index);
     currentMediaIndex = index;
     let injectMedia = $lightboxModal.getElementsByClassName("img_title_lightbox")[0];
-    injectMedia.innerHTML = '<li>' + factory.createMedia(currentMedia, 'lightbox').html + '</li>' +
-        '<li class="media-title">' + currentMedia.title + '</li>';
+    injectMedia.innerHTML = '<div>' + factory.createMedia(currentMedia, 'lightbox').html + 
+    '</div>' +
+    '<div class="media-title">'+
+     currentMedia.title + '</div>';
 }
 
 // functions to navigate tn the lightbox
