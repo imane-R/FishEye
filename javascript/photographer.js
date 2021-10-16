@@ -140,7 +140,7 @@ function initCustomSelect() {
     /**
  *  look for any elements with the class "dropdown"
  */
-    let dropDownSelect, selElement, selectedItem, optionList, newSelectBox;
+    let dropDownSelect, selElement, selectedItem, optionList, optionItem;
     dropDownSelect = document.getElementsByClassName('dropdown');
     for (let i = 0; i < dropDownSelect.length; i++) {
         selElement = dropDownSelect[i].getElementsByTagName('select')[0];
@@ -163,7 +163,7 @@ function initCustomSelect() {
             if (i === 0) {
                 optionItem.classList.add('same-as-selected');
             }
-            optionItem.addEventListener("click", function (e) {
+            optionItem.addEventListener("click", function () {
                 /*when an item is clicked, update the original select box,
                 and the selected item:*/
                 let newSelectBox, previousElement, sameAsSelected;
