@@ -111,7 +111,7 @@ function titleComparator(a, b) {
  *  On change dropDown, call showMediasByAttribute function
  */
  function changeDropDownEvent() {
-    let selectedChoice = document.getElementById("trier").getElementsByClassName('same-as-selected')[0].getAttribute('data-value');
+    let selectedChoice = document.getElementsByClassName('same-as-selected')[0].getAttribute('data-value');
     showMediasByAttribute(selectedChoice);
 }
 
@@ -381,7 +381,7 @@ function sentMessage() {
 
 // lightBox open function 
 function openLightBox(event) {
-    var index = parseInt(event.currentTarget.parentNode.getAttribute('data-media-index'));
+    let index = parseInt(event.currentTarget.parentNode.getAttribute('data-media-index'));
     openModal($lightboxModal);
     showMediaInLighBox(index);
 }
